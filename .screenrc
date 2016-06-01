@@ -1,0 +1,5 @@
+shell zsh
+defutf8 off
+caption always '%w'
+startup_message off
+
