@@ -46,6 +46,14 @@ function dotfiles() {
   wget -O ~/.screenrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/.screenrc
 }
 
+function provision() {
+  sudo apt-get install git vim screen
+}
+
+function provision-gui() {
+  sudo apt-get install chromium-browser gimp
+}
+
 setopt autocd
 setopt extendedglob
 
