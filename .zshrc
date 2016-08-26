@@ -1,3 +1,8 @@
+# .zshrc - configuration for Zsh (zsh.org)
+# by Thomas Heller
+# latest version:
+# https://github.com/thomasheller/dotfiles/
+
 export PROMPT='%n@%m:%~%# '
 export EDITOR=vim
 
