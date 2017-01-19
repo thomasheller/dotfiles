@@ -46,9 +46,9 @@ function mcd() { mkdir -p $1 && cd $1 }
 
 # get latest dotfiles (local changes will be overwritten)
 function dotfiles() {
-  wget -O ~/.zshrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/.zshrc
-  wget -O ~/.vimrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/.vimrc
-  wget -O ~/.screenrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/.screenrc
+  wget -O ~/.zshrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/zshrc
+  wget -O ~/.vimrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/vimrc
+  wget -O ~/.screenrc https://raw.githubusercontent.com/thomasheller/dotfiles/master/screenrc
 }
 
 function provision() {
