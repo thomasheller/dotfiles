@@ -52,3 +52,7 @@ iab prot protected
 iab priv private
 iab ret return
 
+" Go plugin
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go'
+call plug#end()
