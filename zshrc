@@ -25,6 +25,7 @@ alias h=head
 alias g=grep
 alias gb='go build'
 alias gg='go get'
+alias gitresethard='git fetch origin && git reset --hard origin/master && git clean -df'
 alias gi='grep -i'
 alias gl='grep -l'
 alias gil='grep -il'
