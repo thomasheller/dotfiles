@@ -3,7 +3,7 @@
 # latest version:
 # https://github.com/thomasheller/dotfiles/
 
-export PROMPT='%n@%m:%~%# '
+export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f '
 export EDITOR=vim
 export GOPATH=$HOME/gocode
 export PATH=$PATH:/usr/lib/go/bin:$GOPATH/bin
