@@ -119,7 +119,7 @@ checkdotfile screenrc
 
 if command -v apt-get >/dev/null
 then
-  if ! dpkg -l $USEFUL_APT_ACKAGES >/dev/null
+  if ! dpkg -s $USEFUL_APT_ACKAGES >/dev/null
   then
     sudo apt-get install $USEFUL_APT_ACKAGES
   fi
