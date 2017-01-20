@@ -161,11 +161,20 @@ then
 fi
 
 # check if ~/dotfiles is up-to-date with GitHub:
-git -C $DOTFILES fetch origin || return
-if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
+function syncdotfiles {
+  git -C $DOTFILES fetch origin || return
+  if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
+  then
+    echo Dotfiles in origin/master have changed:
+    git -C $DOTFILES status
+  fi
+}
+
+if [[ $TERM == screen ]]
 then
-  echo Dotfiles in origin/master have changed:
-  git -C $DOTFILES status
+  echo Type \`syncdotfiles\' to sync dotfiles
+else
+  syncdotfiles
 fi
 
 if [[ -a ~/.zshrc.local ]]
