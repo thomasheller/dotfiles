@@ -88,6 +88,17 @@ setopt extendedglob
 
 # init:
 
+if [[ ${SHELL:t} != zsh ]]
+then
+  if grep $(which zsh) /etc/shells >/dev/null
+  then
+    echo Setting zsh as default shell
+    chsh -s $(which zsh)
+  else
+    print -P %F{001}zsh is missing in /etc/shells%f
+  fi
+fi
+
 function checkdotfile {
   local dotfile=.$1
   local repofile=$1
