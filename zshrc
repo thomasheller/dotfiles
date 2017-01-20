@@ -88,8 +88,5 @@ function fetch-last-command-args-or-delete-first-word {
   fi
 }
 
-
 setopt autocd
 setopt extendedglob
-
-
