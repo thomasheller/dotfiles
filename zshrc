@@ -8,7 +8,7 @@ export EDITOR=vim
 export GOPATH=$HOME/gocode
 export PATH=$PATH:/usr/lib/go/bin:$GOPATH/bin
 export DOTFILES=$HOME/dotfiles
-export USEFUL_PACKAGES=(vim screen)
+export USEFUL_APT_ACKAGES=(vim screen curl netcat zip unzip bzip2)
 
 alias ...='../..'
 alias ....='../../..'
@@ -58,7 +58,7 @@ function provision() {
 }
 
 function provision-gui() {
-  sudo apt-get install chromium-browser gimp virtualbox-guest-dkms
+  sudo apt-get install chromium-browser gimp imagemagick virtualbox-guest-dkms
 }
 
 function go64() {
@@ -119,9 +119,9 @@ checkdotfile screenrc
 
 if command -v apt-get >/dev/null
 then
-  if ! dpkg -l $USEFUL_PACKAGES >/dev/null
+  if ! dpkg -l $USEFUL_APT_ACKAGES >/dev/null
   then
-    sudo apt-get install $USEFUL_PACKAGES
+    sudo apt-get install $USEFUL_APT_ACKAGES
   fi
 fi
 
