@@ -58,11 +58,11 @@ function dotfiles() {
 }
 
 function provision() {
-  sudo apt-get install git vim screen
+  sudo apt-get install git vim screen 
 }
 
 function provision-gui() {
-  sudo apt-get install chromium-browser gimp
+  sudo apt-get install chromium-browser gimp virtualbox-guest-dkms
 }
 
 function go64() {
