@@ -111,3 +111,8 @@ then
   echo Dotfiles in origin/master have changed:
   git -C $DOTFILES status
 fi
+
+if [[ -a ~/.zshrc.local ]]
+then
+  source ~/.zshrc.local
+fi
