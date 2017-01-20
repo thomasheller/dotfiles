@@ -8,6 +8,7 @@ export EDITOR=vim
 export GOPATH=$HOME/gocode
 export PATH=$PATH:/usr/lib/go/bin:$GOPATH/bin
 export DOTFILES=$HOME/dotfiles
+export USEFUL_PACKAGES=(vim screen)
 
 alias ...='../..'
 alias ....='../../..'
@@ -115,6 +116,14 @@ function checkdotfile {
 checkdotfile zshrc
 checkdotfile vimrc
 checkdotfile screenrc
+
+if command -v apt-get >/dev/null
+then
+  if ! dpkg -l $USEFUL_PACKAGES >/dev/null
+  then
+    sudo apt-get install $USEFUL_PACKAGES
+  fi
+fi
 
 if [[ ! -a ~/.vim/autoload/plug.vim ]]
 then
