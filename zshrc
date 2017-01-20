@@ -75,10 +75,6 @@ alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
 
 function mcd() { mkdir -p $1 && cd $1 }
 
-function provision() {
-  sudo apt-get install git vim screen 
-}
-
 function provision-gui() {
   sudo apt-get install chromium-browser gimp imagemagick virtualbox-guest-dkms
 }
