@@ -7,13 +7,14 @@ export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B
 export EDITOR=vim
 export GOPATH=$HOME/gocode
 export PATH=$PATH:/usr/lib/go/bin:$GOPATH/bin
+export DOTFILES=$HOME/dotfiles
 
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
-alias .s="$EDITOR ~/.screenrc"
-alias .v="$EDITOR ~/.vimrc"
-alias .z="$EDITOR ~/.zshrc"
+alias .s="$EDITOR $DOTFILES/screenrc"
+alias .v="$EDITOR $DOTFILES/vimrc"
+alias .z="$EDITOR $DOTFILES/zshrc"
 alias ai='sudo apt-get install'
 alias ac='apt-cache search'
 alias md=mkdir
@@ -93,12 +94,11 @@ setopt extendedglob
 
 # check if ~/dotfiles is up-to-date with GitHub:
 function dotfilestatus {
-  local gitdir=$HOME/dotfiles
-  git -C $gitdir fetch origin || return
-  if ! git -C $gitdir diff origin/master --exit-code >/dev/null
+  git -C $DOTFILES fetch origin || return
+  if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
   then
     echo Dotfiles in origin/master have changed:
-    git -C $gitdir status
+    git -C $DOTFILES status
   fi
 }
 
