@@ -52,7 +52,11 @@ iab prot protected
 iab priv private
 iab ret return
 
-" Go plugin
+" Plug plugins
 call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go'
 call plug#end()
+
+nmap <leader>C <Plug>NERDCommenterToggle
+vmap <leader>C <Plug>NERDCommenterToggle
