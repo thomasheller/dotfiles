@@ -90,10 +90,10 @@ setopt extendedglob
 
 if [[ ${SHELL:t} != zsh ]]
 then
-  if grep $(which zsh) /etc/shells >/dev/null
+  if grep $(command -v zsh) /etc/shells >/dev/null
   then
     echo Setting zsh as default shell
-    chsh -s $(which zsh)
+    chsh -s $(command -v zsh)
   else
     print -P %F{001}zsh is missing in /etc/shells%f
   fi
