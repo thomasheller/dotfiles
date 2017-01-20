@@ -85,15 +85,29 @@ function fetch-last-command-args-or-delete-first-word {
 setopt autocd
 setopt extendedglob
 
-# check if ~/dotfiles is up-to-date with GitHub:
-function dotfilestatus {
-  git -C $DOTFILES fetch origin || return
-  if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
+# init:
+
+function checkdotfile {
+  local dotfile=.$1
+  local repofile=$1
+  if [[ ! -a ~/$dotfile ]]
   then
-    echo Dotfiles in origin/master have changed:
-    git -C $DOTFILES status
+    # echo ~/$dotfile does not exist, symlinking to $DOTFILES/$repofile
+    ln -s $DOTFILES/$repofile ~/$dotfile
+  else if [[ $(realpath ~/$dotfile) != $DOTFILES/$repofile ]]
+  then
+    print -P %F{001}~/$dotfile exists, but is not a symlink to ~/dotfiles/$repofile%f
+  fi
   fi
 }
+checkdotfile zshrc
+checkdotfile vimrc
+checkdotfile screenrc
 
-#init:
-dotfilestatus
+# check if ~/dotfiles is up-to-date with GitHub:
+git -C $DOTFILES fetch origin || return
+if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
+then
+  echo Dotfiles in origin/master have changed:
+  git -C $DOTFILES status
+fi
