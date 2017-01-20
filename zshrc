@@ -94,7 +94,7 @@ setopt extendedglob
 # check if ~/dotfiles is up-to-date with GitHub:
 function dotfilestatus {
   local gitdir=$HOME/dotfiles
-  git -C $gitdir fetch origin
+  git -C $gitdir fetch origin || return
   if ! git -C $gitdir diff origin/master --exit-code >/dev/null
   then
     echo Dotfiles in origin/master have changed:
