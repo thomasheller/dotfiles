@@ -109,6 +109,9 @@ function fetch-last-command-args-or-delete-first-word {
 setopt autocd
 setopt extendedglob
 
+stty stop undef
+stty start undef
+
 # init:
 
 if [[ ${SHELL:t} != zsh ]]
