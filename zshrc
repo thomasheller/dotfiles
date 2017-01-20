@@ -116,6 +116,14 @@ checkdotfile zshrc
 checkdotfile vimrc
 checkdotfile screenrc
 
+if [[ ! -a ~/.vim/autoload/plug.vim ]]
+then
+  if ! curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  then
+    print -P %F{001}Failed to download vim-plug%f
+  fi
+fi
+
 # check if ~/dotfiles is up-to-date with GitHub:
 git -C $DOTFILES fetch origin || return
 if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
