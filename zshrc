@@ -124,6 +124,11 @@ then
   fi
 fi
 
+if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
+then
+  vim +PlugInstall +qall
+fi
+
 # check if ~/dotfiles is up-to-date with GitHub:
 git -C $DOTFILES fetch origin || return
 if ! git -C $DOTFILES diff origin/master --exit-code >/dev/null
