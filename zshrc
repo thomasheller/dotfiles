@@ -90,3 +90,17 @@ function fetch-last-command-args-or-delete-first-word {
 
 setopt autocd
 setopt extendedglob
+
+# check if ~/dotfiles is up-to-date with GitHub:
+function dotfilestatus {
+  local gitdir=$HOME/dotfiles
+  git -C $gitdir fetch origin
+  if ! git -C $gitdir diff origin/master --exit-code >/dev/null
+  then
+    echo Dotfiles in origin/master have changed:
+    git -C $gitdir status
+  fi
+}
+
+#init:
+dotfilestatus
