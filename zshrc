@@ -26,7 +26,6 @@ alias h=head
 alias g=grep
 alias gb='go build'
 alias gg='go get'
-alias gitresethard='git fetch origin && git reset --hard origin/master && git clean -df'
 alias gi='grep -i'
 alias gl='grep -l'
 alias gil='grep -il'
@@ -41,6 +40,28 @@ alias v=vim
 alias p='print -l'
 alias src="source ~/.zshrc"
 alias wl='wc -l'
+alias G=git
+alias Ga='git add'
+alias Gb='git branch'
+alias Gc='git clone'
+alias Gcim='git commit -m'
+alias Gciv='git commit -v'
+alias Gcl='git clean -d --interactive'
+alias Gco='git checkout'
+alias Gd='git diff'
+alias Gf='git fetch'
+alias Gg='git grep'
+alias Gi='git init'
+alias Gl='git log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --graph'
+alias Glf='git log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'
+alias Gm='git merge'
+alias Gpl='git pull'
+alias Gpo='git push origin'
+alias Gr='git reset'
+alias Grm='git rm'
+alias Gs='git status'
+alias Gsh='git show'
+alias Gt='git tag'
 
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls --color=auto'
