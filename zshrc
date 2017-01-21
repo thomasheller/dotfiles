@@ -92,7 +92,7 @@ bindkey '^Z' fetch-last-command-args-or-delete-first-word
 bindkey '^M' ls-or-accept-line
 zle -N insert-glob-all-non-dirs
 function insert-glob-all-non-dirs() {
-  LBUFFER=$LBUFFER' **/*(^/) '
+  LBUFFER=$LBUFFER'**/*(^/) '
 }
 zle -N fetch-last-command-args-or-delete-first-word
 function fetch-last-command-args-or-delete-first-word {
