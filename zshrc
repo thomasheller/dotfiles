@@ -87,6 +87,13 @@ function go64() {
   GOARCH=amd64 GOOS=linux go $@
 }
 
+function bis() {
+  for x in $@
+  do
+    bower install --save $x
+  done
+}
+
 bindkey '^[[19~' insert-glob-all-non-dirs
 bindkey '^Z' fetch-last-command-args-or-delete-first-word
 bindkey '^M' ls-or-accept-line
