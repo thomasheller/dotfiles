@@ -22,6 +22,7 @@ alias md=mkdir
 alias rd=rmdir
 alias c=cat
 alias cp='cp -i'
+alias disp=display
 alias h=head
 alias g=grep
 alias gb='go build'
@@ -38,6 +39,7 @@ alias rm='rm -i'
 alias t=tail
 alias v=vim
 alias p='print -l'
+alias reds='redshift -t 6500:1000'
 alias src="source ~/.zshrc"
 alias wl='wc -l'
 alias G=git
@@ -69,6 +71,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias img2pdf="convert -compress jpeg -resize 1240x1753 -extent 1240x1753 -gravity center -units PixelsPerInch -density 150x150"
+alias img2pdf_gray="convert -compress jpeg -colorspace gray -resize 1240x1753 -extent 1240x1753 -gravity center -units PixelsPerInch -density 150x150"
+alias img2pdf_mono="convert -compress jpeg -monochrome -resize 1240x1753 -extent 1240x1753 -gravity center -units PixelsPerInch -density 150x150"
 
 alias outlook="java -jar ~/outlook/MSGViewer-1.9/MSGViewer.jar"
 alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
