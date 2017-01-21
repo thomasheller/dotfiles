@@ -89,6 +89,7 @@ function go64() {
 
 bindkey '^[[19~' insert-glob-all-non-dirs
 bindkey '^Z' fetch-last-command-args-or-delete-first-word
+bindkey '^M' ls-or-accept-line
 zle -N insert-glob-all-non-dirs
 function insert-glob-all-non-dirs() {
   LBUFFER=$LBUFFER' **/*(^/) '
@@ -104,6 +105,14 @@ function fetch-last-command-args-or-delete-first-word {
       CURSOR=0
       zle delete-word
   fi
+}
+zle -N ls-or-accept-line
+function ls-or-accept-line {
+  if [ $#BUFFER -eq 0 ]
+  then
+    BUFFER=l
+  fi
+  zle accept-line
 }
 
 setopt autocd
