@@ -8,7 +8,7 @@ export EDITOR=vim
 export GOPATH=$HOME/gocode
 export PATH=$PATH:/usr/lib/go/bin:$GOPATH/bin:$HOME/bin
 export DOTFILES=$HOME/dotfiles
-export USEFUL_APT_ACKAGES=(git zsh vim screen curl netcat-openbsd zip unzip bzip2)
+export USEFUL_APT_ACKAGES=(git zsh vim screen curl netcat-openbsd zip unzip bzip2 pdfgrep)
 
 alias ...='../..'
 alias ....='../../..'
