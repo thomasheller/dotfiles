@@ -60,3 +60,6 @@ call plug#end()
 
 nmap <leader>C <Plug>NERDCommenterToggle
 vmap <leader>C <Plug>NERDCommenterToggle
+
+execute pathogen#infect()
+
