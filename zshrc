@@ -64,7 +64,16 @@ alias Gresethardmaster='git fetch origin && git reset --hard origin/master && gi
 alias Grm='git rm'
 alias Gs='git status'
 alias Gsh='git show'
+alias Gshowremote='git remote show'
 alias Gt='git tag'
+
+function Gours() {
+  git checkout --ours $@ && git add $@
+}
+
+function Gtheirs() {
+  git checkout --theirs $@ && git add $@
+}
 
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls --color=auto'
