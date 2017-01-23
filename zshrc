@@ -179,6 +179,14 @@ then
   fi
 fi
 
+if command -v go >/dev/null
+then
+  if [[ ! -a $GOPATH/bin/jsonpp ]]
+  then
+    go get github.com/jmhodges/jsonpp
+  fi
+fi
+
 if [[ ! -a ~/.vim/autoload/plug.vim ]]
 then
   if ! curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
