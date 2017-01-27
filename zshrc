@@ -36,6 +36,7 @@ alias gl='grep -l'
 alias gil='grep -il'
 alias gw='grep -w'
 alias l=ls
+alias la='ls -a'
 alias ll='ls -l'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias mv='mv -i'
