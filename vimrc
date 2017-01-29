@@ -11,9 +11,10 @@ nnoremap  :nohlsearch<cr>
 
 " assign function keys
 "nnoremap <f1> :!!<cr>
-nnoremap <f1> :!gofmt -w % && go run %<cr>
+nnoremap <f1> :GoBuild<cr>
 nnoremap <f3> :up<cr>
 nnoremap <f4> :q<cr>
+imap <f1> <esc><f3>
 imap <f3> <esc><f3>
 imap <f4> <esc><f4>
 set pastetoggle=<f5>
