@@ -18,6 +18,7 @@ alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
 alias D="cd $DOTFILES"
+alias GO="cd $GOPATH"
 alias .s="$EDITOR $DOTFILES/screenrc"
 alias .v="$EDITOR $DOTFILES/vimrc"
 alias .z="$EDITOR $DOTFILES/zshrc"
