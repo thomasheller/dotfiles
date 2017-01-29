@@ -17,6 +17,7 @@ path+=$HOME/bin
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
+alias D="cd $DOTFILES"
 alias .s="$EDITOR $DOTFILES/screenrc"
 alias .v="$EDITOR $DOTFILES/vimrc"
 alias .z="$EDITOR $DOTFILES/zshrc"
