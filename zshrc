@@ -13,6 +13,7 @@ typeset -U path
 path+=/usr/lib/go/bin
 path+=$GOPATH/bin
 path+=$HOME/bin
+path+=$HOME/.vim/bundle/vimpager
 
 alias ...='../..'
 alias ....='../../..'
@@ -202,6 +203,12 @@ if [[ ! -a ~/.vim/bundle/vim-dirdiff ]]
 then
   echo Installing vim-dirdiff...
   git clone https://github.com/will133/vim-dirdiff ~/.vim/bundle/vim-dirdiff
+fi
+
+if [[ ! -a ~/.vim/bundle/vimpager ]]
+then
+  echo Installing vimpager...
+  git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager
 fi
 
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
