@@ -72,7 +72,7 @@ alias Gresethardmaster='git fetch origin && git reset --hard origin/master && gi
 alias Grm='git rm'
 alias Gs='git status'
 alias Gsh='git show'
-alias Gshowremote='git remote show'
+alias Gshowremote='git remote -v'
 alias Gt='git tag'
 
 function Gours() {
