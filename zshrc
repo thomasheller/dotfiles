@@ -9,7 +9,7 @@ export GOPATH=$HOME/gocode
 
 if command -v apt-get >/dev/null
 then
-  local USEFUL_APT_ACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 pdfgrep)
+  local USEFUL_APT_ACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep)
   if ! dpkg -s $USEFUL_APT_ACKAGES >/dev/null
   then
     sudo apt-get install $USEFUL_APT_ACKAGES
@@ -22,6 +22,8 @@ then
   then
     go get github.com/jmhodges/jsonpp
   fi
+else 
+  print -P %F{001}Golang is not available%f
 fi
 
 if [[ ! -a ~/.vim/autoload/plug.vim ]]
@@ -35,13 +37,13 @@ fi
 if [[ ! -a ~/.vim/bundle/vim-dirdiff ]]
 then
   echo Installing vim-dirdiff...
-  git clone https://github.com/will133/vim-dirdiff ~/.vim/bundle/vim-dirdiff
+  git clone https://github.com/will133/vim-dirdiff ~/.vim/bundle/vim-dirdiff || print -P %F{001}Failed to install vim-dirdiff%f
 fi
 
 if [[ ! -a ~/.vim/bundle/vimpager ]]
 then
   echo Installing vimpager...
-  git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager
+  git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager || print -P %F{001}Failed to install vimpager%f
 fi
 
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
