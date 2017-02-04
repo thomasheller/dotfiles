@@ -9,6 +9,7 @@ export GOPATH=$HOME/gocode
 export DOTFILES=$HOME/dotfiles
 export USEFUL_APT_ACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 pdfgrep)
 export PDFVIEWER=evince
+export IMAGEVIEWER=display
 
 typeset -U path
 path+=/usr/lib/go/bin
@@ -33,7 +34,7 @@ alias md=mkdir
 alias rd=rmdir
 alias c=cat
 alias cp='cp -i'
-alias disp=display
+alias disp=$IMAGEVIEWER
 alias h=head
 alias g=grep
 alias gb='go build'
@@ -82,6 +83,8 @@ alias Gshowremote='git remote -v'
 alias Gt='git tag'
 
 alias -s pdf=$PDFVIEWER
+alias -s jpg=$IMAGEVIEWER
+alias -s png=$IMAGEVIEWER
 
 function Gours() {
   git checkout --ours $@ && git add $@
