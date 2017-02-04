@@ -16,6 +16,9 @@ path+=$GOPATH/bin
 path+=$HOME/bin
 path+=$HOME/.vim/bundle/vimpager
 
+hash -d D=$HOME/Downloads
+hash -d G=$GOPATH
+
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
