@@ -3,6 +3,12 @@
 # latest version:
 # https://github.com/thomasheller/dotfiles/
 
+typeset -U path
+path+=/usr/local/go/bin
+path+=$GOPATH/bin
+path+=$HOME/bin
+path+=$HOME/.vim/bundle/vimpager
+
 export GOPATH=$HOME/gocode
 
 # install useful stuff:
@@ -63,12 +69,6 @@ export EDITOR=vim
 export DOTFILES=$HOME/dotfiles
 export PDFVIEWER=evince
 export IMAGEVIEWER=display
-
-typeset -U path
-path+=/usr/lib/go/bin
-path+=$GOPATH/bin
-path+=$HOME/bin
-path+=$HOME/.vim/bundle/vimpager
 
 hash -d D=$HOME/Downloads
 hash -d G=$GOPATH
