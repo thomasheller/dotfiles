@@ -8,6 +8,7 @@ export EDITOR=vim
 export GOPATH=$HOME/gocode
 export DOTFILES=$HOME/dotfiles
 export USEFUL_APT_ACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 pdfgrep)
+export PDFVIEWER=evince
 
 typeset -U path
 path+=/usr/lib/go/bin
@@ -76,6 +77,8 @@ alias Gsh='git show'
 alias Gshowremote='git remote -v'
 alias Gt='git tag'
 
+alias -s pdf=$PDFVIEWER
+
 function Gours() {
   git checkout --ours $@ && git add $@
 }
@@ -98,7 +101,7 @@ alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
 function mcd() { mkdir -p $1 && cd $1 }
 
 function provision-gui() {
-  sudo apt-get install chromium-browser gimp imagemagick virtualbox-guest-dkms texmaker meld redshift
+  sudo apt-get install chromium-browser gimp imagemagick virtualbox-guest-dkms texmaker meld redshift evince
 }
 
 function go64() {
