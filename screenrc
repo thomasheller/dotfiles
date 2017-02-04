@@ -1,5 +1,5 @@
 shell zsh
-defutf8 off
+defutf8 on
 caption always '%w'
 startup_message off
 bind v screen vim
