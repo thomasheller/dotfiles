@@ -3,11 +3,62 @@
 # latest version:
 # https://github.com/thomasheller/dotfiles/
 
+export GOPATH=$HOME/gocode
+
+# install useful stuff:
+
+if command -v apt-get >/dev/null
+then
+  local USEFUL_APT_ACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 pdfgrep)
+  if ! dpkg -s $USEFUL_APT_ACKAGES >/dev/null
+  then
+    sudo apt-get install $USEFUL_APT_ACKAGES
+  fi
+fi
+
+if command -v go >/dev/null
+then
+  if [[ ! -a $GOPATH/bin/jsonpp ]]
+  then
+    go get github.com/jmhodges/jsonpp
+  fi
+fi
+
+if [[ ! -a ~/.vim/autoload/plug.vim ]]
+then
+  if ! curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  then
+    print -P %F{001}Failed to download vim-plug%f
+  fi
+fi
+
+if [[ ! -a ~/.vim/bundle/vim-dirdiff ]]
+then
+  echo Installing vim-dirdiff...
+  git clone https://github.com/will133/vim-dirdiff ~/.vim/bundle/vim-dirdiff
+fi
+
+if [[ ! -a ~/.vim/bundle/vimpager ]]
+then
+  echo Installing vimpager...
+  git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager
+fi
+
+if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
+then
+  vim +PlugInstall +qall
+fi
+
+if [[ -a ~/.vim/bundle/vimpager ]]
+then
+  export PAGER=vimpager
+else
+  export PAGER=less
+fi
+
 export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f '
 export EDITOR=vim
-export GOPATH=$HOME/gocode
 export DOTFILES=$HOME/dotfiles
-export USEFUL_APT_ACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 pdfgrep)
 export PDFVIEWER=evince
 export IMAGEVIEWER=display
 
@@ -185,47 +236,6 @@ function checkdotfile {
 checkdotfile zshrc
 checkdotfile vimrc
 checkdotfile screenrc
-
-if command -v apt-get >/dev/null
-then
-  if ! dpkg -s $USEFUL_APT_ACKAGES >/dev/null
-  then
-    sudo apt-get install $USEFUL_APT_ACKAGES
-  fi
-fi
-
-if command -v go >/dev/null
-then
-  if [[ ! -a $GOPATH/bin/jsonpp ]]
-  then
-    go get github.com/jmhodges/jsonpp
-  fi
-fi
-
-if [[ ! -a ~/.vim/autoload/plug.vim ]]
-then
-  if ! curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  then
-    print -P %F{001}Failed to download vim-plug%f
-  fi
-fi
-
-if [[ ! -a ~/.vim/bundle/vim-dirdiff ]]
-then
-  echo Installing vim-dirdiff...
-  git clone https://github.com/will133/vim-dirdiff ~/.vim/bundle/vim-dirdiff
-fi
-
-if [[ ! -a ~/.vim/bundle/vimpager ]]
-then
-  echo Installing vimpager...
-  git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager
-fi
-
-if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
-then
-  vim +PlugInstall +qall
-fi
 
 # check if ~/dotfiles is up-to-date with GitHub:
 function syncdotfiles {
