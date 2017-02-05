@@ -53,6 +53,9 @@ iab prot protected
 iab priv private
 iab ret return
 
+" auto-update on write in diff-mode
+autocmd BufWritePost * if &diff == 1 | diffupdate | endif
+
 " Plug plugins
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdcommenter'
