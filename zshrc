@@ -173,6 +173,22 @@ function go64() {
   GOARCH=amd64 GOOS=linux go $@
 }
 
+function replace() {
+  local search
+  local replace
+  search=$1
+  replace=$2
+  shift 2
+  echo sed -i -- "s/$search/$replace/g" $@
+  echo -n "OK? (y/n) "
+  read line
+  if [[ $line == "y" ]]
+  then
+    echo Replacing...
+    sed -i -- "s/$search/$replace/g" $@
+  fi
+}
+
 function bis() {
   for x in $@
   do
