@@ -65,5 +65,9 @@ call plug#end()
 nmap <leader>C <Plug>NERDCommenterToggle
 vmap <leader>C <Plug>NERDCommenterToggle
 
+" Google search using vim-g
+nmap <leader>G viw:Google<cr>
+vmap <leader>G :Google<cr>
+
 execute pathogen#infect()
 

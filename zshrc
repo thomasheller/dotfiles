@@ -53,6 +53,12 @@ then
   git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager || print -P %F{001}Failed to install vimpager%f
 fi
 
+if [[ ! -a ~/.vim/bundle/vim-g ]]
+then
+  echo Installing vim-g...
+  git clone https://github.com/szw/vim-g ~/.vim/bundle/vim-g || print -P %F{001}Failed to install vim-g%f
+fi
+
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
 then
   vim +PlugInstall +qall
