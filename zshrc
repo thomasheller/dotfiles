@@ -114,6 +114,7 @@ alias lart='ls -lart'
 alias mpl='mplayer'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias mv='mv -i'
+alias now='date +%Y-%m-%d-%H%M%S-%Z'
 alias rm='rm -i'
 alias t=tail
 alias v=vim
