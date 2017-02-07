@@ -206,6 +206,7 @@ function bis() {
 }
 
 bindkey jj vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
 
 bindkey '^[[19~' insert-glob-all-non-dirs
 bindkey '^Z' fetch-last-command-args-or-delete-first-word
@@ -299,3 +300,10 @@ if [[ -a ~/.zshrc.local ]]
 then
   source ~/.zshrc.local
 fi
+
+function hn() {
+  for i in $@
+  do
+    (cd ~/sivm/sivananda-marga/ && hugo new $i.md)
+  done
+}
