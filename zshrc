@@ -204,6 +204,8 @@ function bis() {
   done
 }
 
+bindkey jj vi-cmd-mode
+
 bindkey '^[[19~' insert-glob-all-non-dirs
 bindkey '^Z' fetch-last-command-args-or-delete-first-word
 bindkey '^M' ls-or-accept-line
