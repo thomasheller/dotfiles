@@ -79,6 +79,7 @@ export IMAGEVIEWER=display
 
 hash -d D=$HOME/Downloads
 hash -d G=$GOPATH
+hash -d T=$HOME/thme/thomasheller-hugo
 
 alias ...='../..'
 alias ....='../../..'
