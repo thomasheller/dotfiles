@@ -106,6 +106,7 @@ alias ac='apt-cache search'
 alias md=mkdir
 alias rd=rmdir
 alias c=cat
+alias calc='bc -lq' # use scale=n to set precision manually
 alias cp='cp -i'
 alias disp=$IMAGEVIEWER
 alias h=head
