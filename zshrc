@@ -15,7 +15,7 @@ export GOPATH=$HOME/gocode
 
 if command -v apt-get >/dev/null
 then
-  local USEFUL_APT_PACKAGES
+  local -a USEFUL_APT_PACKAGES
   USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep)
   if ! dpkg -s $USEFUL_APT_PACKAGES >/dev/null
   then
