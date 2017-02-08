@@ -77,15 +77,21 @@ export DOTFILES=$HOME/dotfiles
 export PDFVIEWER=evince
 export IMAGEVIEWER=display
 
-hash -d D=$HOME/Downloads
+hash -d D=$DOTFILES
 hash -d G=$GOPATH
-hash -d T=$HOME/thme/thomasheller-hugo
+hash -d T=$GOPATH/src/github.com/thomasheller
+hash -d TH=$HOME/thme/thomasheller-hugo
+hash -d W=$HOME/Downloads
+
+alias D="cd ~D"
+alias G="cd ~G"
+alias T="cd ~T"
+alias TH="cd ~TH"
+alias W="cd ~W"
 
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
-alias D="cd $DOTFILES"
-alias GO="cd $GOPATH"
 alias .s="$EDITOR $DOTFILES/screenrc"
 alias .v="$EDITOR $DOTFILES/vimrc"
 alias .z="$EDITOR $DOTFILES/zshrc"
@@ -124,7 +130,6 @@ alias reds='redshift -t 6500:1000'
 alias sshproxy='ssh -v -D 8080 -C -N'
 alias src="source $DOTFILES/zshrc"
 alias wl='wc -l'
-alias G=git
 alias Ga='git add'
 alias Gb='git branch'
 alias Gc='git clone'
