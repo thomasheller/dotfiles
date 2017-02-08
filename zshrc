@@ -95,6 +95,7 @@ alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
 alias .s="$EDITOR $DOTFILES/screenrc"
+alias .t="$EDITOR $DOTFILES/tmux.conf"
 alias .v="$EDITOR $DOTFILES/vimrc"
 alias .z="$EDITOR $DOTFILES/zshrc"
 alias 700='chmod -R 0700'
@@ -283,6 +284,7 @@ function checkdotfile {
 checkdotfile zshrc
 checkdotfile vimrc
 checkdotfile screenrc
+checkdotfile tmux.conf
 
 # check if ~/dotfiles is up-to-date with GitHub:
 function syncdotfiles {
