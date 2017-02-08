@@ -189,6 +189,10 @@ function go64() {
   GOARCH=amd64 GOOS=linux go $@
 }
 
+function chromium-fake-media() {
+  chromium-browser --use-fake-ui-for-media-stream --use-fake-device-for-media-stream
+}
+
 function replace() {
   local search
   local replace
