@@ -89,6 +89,8 @@ alias T="cd ~T"
 alias TH="cd ~TH"
 alias W="cd ~W"
 
+alias Dpl='cd ~D && Gpl'
+
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
@@ -284,6 +286,7 @@ function syncdotfiles {
   then
     echo Dotfiles in origin/master have changed:
     git -C $DOTFILES status
+    echo Type 'Dpl' to pull changes from remote repository.
   fi
 }
 
