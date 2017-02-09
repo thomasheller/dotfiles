@@ -117,6 +117,7 @@ alias gg='go get'
 alias gi='grep -i'
 alias gl='grep -l'
 alias gil='grep -il'
+alias gv='grep -v'
 alias gw='grep -w'
 alias l=ls
 alias la='ls -a'
