@@ -38,6 +38,8 @@ set autoindent
 set smartindent
 set shiftwidth=2
 
+set shell=zsh
+
 " edit and load dotfiles
 cab .v sp ~/dotfiles/vimrc
 cab .z sp ~/dotfiles/zshrc
