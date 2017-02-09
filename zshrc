@@ -185,7 +185,7 @@ alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
 function mcd() { mkdir -p $1 && cd $1 }
 
 function provision-gui() {
-  sudo apt-get install chromium-browser gimp imagemagick virtualbox-guest-dkms texmaker meld redshift evince aterm libreoffice
+  sudo apt-get install chromium-browser gimp inkscape imagemagick virtualbox-guest-dkms texmaker meld redshift evince aterm libreoffice
 }
 
 function go64() {
