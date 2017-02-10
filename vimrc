@@ -74,3 +74,6 @@ vmap <leader>G :Google<cr>
 
 execute pathogen#infect()
 
+colorscheme ron
+syntax on
+
