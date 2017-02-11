@@ -16,7 +16,7 @@ export GOPATH=$HOME/gocode
 if command -v apt-get >/dev/null
 then
   local -a USEFUL_APT_PACKAGES
-  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux)
+  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap)
   if ! dpkg -s $USEFUL_APT_PACKAGES >/dev/null
   then
     sudo apt-get install $USEFUL_APT_PACKAGES
@@ -117,6 +117,7 @@ alias gg='go get'
 alias gi='grep -i'
 alias gl='grep -l'
 alias gil='grep -il'
+alias gv='grep -v'
 alias gw='grep -w'
 alias l=ls
 alias la='ls -a'
@@ -184,7 +185,7 @@ alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
 function mcd() { mkdir -p $1 && cd $1 }
 
 function provision-gui() {
-  sudo apt-get install chromium-browser gimp imagemagick virtualbox-guest-dkms texmaker meld redshift evince
+  sudo apt-get install chromium-browser gimp inkscape imagemagick virtualbox-guest-dkms texmaker meld redshift evince aterm libreoffice
 }
 
 function go64() {
