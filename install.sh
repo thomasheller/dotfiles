@@ -7,7 +7,7 @@
 # See README.md for more information.
 
 # The following commands provide a convenient way of installing
-# everthing from scratch:
+# everything from scratch:
 
 # 1. Make sure git and zsh are installed
 sudo apt-get -y install git zsh
