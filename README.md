@@ -2,14 +2,13 @@
 
 Some personalized dotfiles.
 
-Install:
+I attempt to restore my setup from ~10 years ago and add some
+improvements. While your mileage may vary, these files could inspire
+you how [zsh](http://zsh.sourceforge.net/),
+[vim](http://www.vim.org/), [tmux](https://tmux.github.io/) and
+various other tools can be adjusted to suit your needs.
 
-    sudo apt-get install git zsh
-    git clone https://github.com/thomasheller/dotfiles
-    exec zsh
-    source dotfiles/zshrc
+Note that using these dotfiles will install various other software on
+your machine and change several settings. Please read and understand
+the entire code before trying them.
 
-1. Make sure git and zsh are installed
-2. Clone the repository
-3. Start zsh (press `q` to leave zsh-newuser-install)
-4. Load configuration
