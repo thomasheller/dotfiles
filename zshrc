@@ -160,9 +160,13 @@ alias Gsh='git show'
 alias Gshowremote='git remote -v'
 alias Gt='git tag'
 
-alias -s pdf=$PDFVIEWER
+alias -s gz='tar ztf' # TODO: should check for tar.gz
+alias -s tar='tar tf'
+alias -s tgz='tar ztf'
+alias -s zip='unzip -l'
 alias -s jpg=$IMAGEVIEWER
 alias -s png=$IMAGEVIEWER
+alias -s pdf=$PDFVIEWER
 
 function Gours() {
   git checkout --ours $@ && git add $@
