@@ -114,6 +114,7 @@ alias h=head
 alias g=grep
 alias gb='go build'
 alias gg='go get'
+alias gt='go test'
 alias gi='grep -i'
 alias gl='grep -l'
 alias gil='grep -il'
