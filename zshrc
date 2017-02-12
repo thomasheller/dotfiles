@@ -130,6 +130,7 @@ alias now='date +%Y-%m-%d-%H%M%S-%Z'
 alias rm='rm -i'
 alias t=tail
 alias v=vim
+alias vd=vimdiff
 alias p='print -l'
 alias reds='redshift -t 6500:1000'
 alias sshproxy='ssh -v -D 8080 -C -N'
