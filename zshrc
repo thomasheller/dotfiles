@@ -335,7 +335,13 @@ function zshexit() {
   if ! Gs | grep "up-to-date with 'origin/master'"
   then
     echo "Maybe you wanted to push your dotfiles?"
-    read x
+    echo
+    Gs
+    echo
+    echo "Press enter to return to a shell."
+    echo "Press ^C if you really want to quit."
+    read line
+    exec zsh
   fi
 }
 
