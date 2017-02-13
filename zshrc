@@ -329,3 +329,13 @@ function hn() {
     (cd ~/sivm/sivananda-marga/ && hugo new $i.md)
   done
 }
+
+function zshexit() {
+  cd ~D
+  if ! Gs | grep "up-to-date with 'origin/master'"
+  then
+    echo "Maybe you wanted to push your dotfiles?"
+    read x
+  fi
+}
+
