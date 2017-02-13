@@ -16,7 +16,7 @@ path+=$HOME/.vim/bundle/vimpager
 if command -v apt-get >/dev/null
 then
   local -a USEFUL_APT_PACKAGES
-  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap)
+  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap tree)
   if ! dpkg -s $USEFUL_APT_PACKAGES >/dev/null
   then
     sudo apt-get install $USEFUL_APT_PACKAGES
