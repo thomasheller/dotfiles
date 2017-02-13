@@ -258,6 +258,7 @@ function ls-or-accept-line {
 
 setopt autocd
 setopt extendedglob
+setopt nohup
 
 stty stop undef
 stty start undef
