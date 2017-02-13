@@ -3,13 +3,13 @@
 # latest version:
 # https://github.com/thomasheller/dotfiles/
 
+export GOPATH=$HOME/gocode
+
 typeset -U path
 path+=/usr/local/go/bin
 path+=$GOPATH/bin
 path+=$HOME/bin
 path+=$HOME/.vim/bundle/vimpager
-
-export GOPATH=$HOME/gocode
 
 # install useful stuff:
 
