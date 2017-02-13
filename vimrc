@@ -43,8 +43,8 @@ set shiftwidth=2
 set shell=zsh
 " Load aliases etc. when using Zsh from Vim:
 " A better solution would be to split the config in ~/.zshenv,
-" ~/.zshrc and ~/.zprofile / ~/.zlogin.
-set shellcmdflag+=i
+" ~/.zshrc and ~/.zprofile / ~/.zlogin because this breaks things.
+" set shellcmdflag+=i
 
 " edit and load dotfiles
 cab .v sp ~/dotfiles/vimrc
