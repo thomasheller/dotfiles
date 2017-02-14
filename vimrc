@@ -11,8 +11,8 @@ nnoremap  :nohlsearch<cr>
 
 " assign function keys
 "nnoremap <f1> :!!<cr>
-nnoremap <f1> :GoBuild<cr>
-nnoremap <f2> :GoTest<cr>
+nnoremap <f1> :up\|:GoBuild<cr>
+nnoremap <f2> :up\|:GoTest<cr>
 nnoremap <f3> :up<cr>
 nnoremap <f4> :q<cr>
 imap <f1> <esc><f3>
