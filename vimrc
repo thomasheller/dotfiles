@@ -61,6 +61,8 @@ iab pu public
 iab prot protected
 iab priv private
 iab ret return
+ino ;f func  {<CR>}<Esc>kela
+ino ;t func Test(t *testing.T) {<CR>}<Esc>kwwi
 
 " Use netrw like NERDtree
 " thanks to https://shapeshed.com/vim-netrw/
