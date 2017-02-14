@@ -62,6 +62,15 @@ iab prot protected
 iab priv private
 iab ret return
 
+" Use netrw like NERDtree
+" thanks to https://shapeshed.com/vim-netrw/
+let g:netrw_banner = 1 " show the banner
+let g:netrw_liststyle = 3 " tree style
+let g:netrw_browse_split = 2 " open files in vertical split
+let g:netrw_altv = 1 " left splitting
+let g:netrw_winsize = 25
+nmap <F12> :Vexplore<cr>
+
 " auto-update on write in diff-mode
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
