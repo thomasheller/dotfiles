@@ -59,6 +59,12 @@ then
   git clone https://github.com/szw/vim-g ~/.vim/bundle/vim-g || print -P %F{001}Failed to install vim-g%f
 fi
 
+if [[ ! -a ~/.vim/bundle/vim-signature ]]
+then
+  echo Installing vim-signature...
+  git clone https://github.com/kshenoy/vim-signature ~/.vim/bundle/vim-signature || print -P %F{001}Failed to install vim-signature%f
+fi
+
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
 then
   vim +PlugInstall +qall
