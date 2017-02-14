@@ -3,20 +3,20 @@
 # latest version:
 # https://github.com/thomasheller/dotfiles/
 
+export GOPATH=$HOME/gocode
+
 typeset -U path
 path+=/usr/local/go/bin
 path+=$GOPATH/bin
 path+=$HOME/bin
 path+=$HOME/.vim/bundle/vimpager
 
-export GOPATH=$HOME/gocode
-
 # install useful stuff:
 
 if command -v apt-get >/dev/null
 then
   local -a USEFUL_APT_PACKAGES
-  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap)
+  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap tree)
   if ! dpkg -s $USEFUL_APT_PACKAGES >/dev/null
   then
     sudo apt-get install $USEFUL_APT_PACKAGES
@@ -57,6 +57,12 @@ if [[ ! -a ~/.vim/bundle/vim-g ]]
 then
   echo Installing vim-g...
   git clone https://github.com/szw/vim-g ~/.vim/bundle/vim-g || print -P %F{001}Failed to install vim-g%f
+fi
+
+if [[ ! -a ~/.vim/bundle/vim-signature ]]
+then
+  echo Installing vim-signature...
+  git clone https://github.com/kshenoy/vim-signature ~/.vim/bundle/vim-signature || print -P %F{001}Failed to install vim-signature%f
 fi
 
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
@@ -266,6 +272,7 @@ function ls-or-accept-line {
 
 setopt autocd
 setopt extendedglob
+setopt nohup
 
 stty stop undef
 stty start undef

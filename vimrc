@@ -11,8 +11,8 @@ nnoremap  :nohlsearch<cr>
 
 " assign function keys
 "nnoremap <f1> :!!<cr>
-nnoremap <f1> :GoBuild<cr>
-nnoremap <f2> :GoTest<cr>
+nnoremap <f1> :up\|:GoBuild<cr>
+nnoremap <f2> :up\|:GoTest<cr>
 nnoremap <f3> :up<cr>
 nnoremap <f4> :q<cr>
 imap <f1> <esc><f3>
@@ -61,6 +61,17 @@ iab pu public
 iab prot protected
 iab priv private
 iab ret return
+ino ;f func  {<CR>}<Esc>kela
+ino ;t func Test(t *testing.T) {<CR>}<Esc>kwwi
+
+" Use netrw like NERDtree
+" thanks to https://shapeshed.com/vim-netrw/
+let g:netrw_banner = 1 " show the banner
+let g:netrw_liststyle = 3 " tree style
+let g:netrw_browse_split = 2 " open files in vertical split
+let g:netrw_altv = 1 " left splitting
+let g:netrw_winsize = 25
+nmap <F12> :Vexplore<cr>
 
 " auto-update on write in diff-mode
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
