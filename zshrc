@@ -76,6 +76,7 @@ export EDITOR=vim
 export DOTFILES=$HOME/dotfiles
 export PDFVIEWER=evince
 export IMAGEVIEWER=display
+export OFFICE=libreoffice
 
 hash -d D=$DOTFILES
 hash -d G=$GOPATH
@@ -169,6 +170,12 @@ alias -s zip='unzip -l'
 alias -s jpg=$IMAGEVIEWER
 alias -s png=$IMAGEVIEWER
 alias -s pdf=$PDFVIEWER
+alias -s odt=$OFFICE # Writer
+alias -s doc=$OFFICE
+alias -s docx=$OFFICE
+alias -s ods=$OFFICE # Calc
+alias -s xls=$OFFICE
+alias -s xlsx=$OFFICE
 
 function Gours() {
   git checkout --ours $@ && git add $@
