@@ -56,6 +56,8 @@ cab src source ~/dotfiles/vimrc
 " search in current file
 command! -nargs=1 G vimgrep <args> % | copen
 " quickfix navigation:
+nnoremap <C-j> :cnext<cr>
+" nnoremap <C-k> :cprevious<cr> " conflicts with digraph mode
 
 " useful programming abbreviations
 iab cl class
