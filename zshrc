@@ -7,6 +7,7 @@ export GOPATH=$HOME/gocode
 
 typeset -U path
 path+=/usr/local/go/bin
+path+=/usr/lib/go/bin
 path+=$GOPATH/bin
 path+=$HOME/bin
 path+=$HOME/.vim/bundle/vimpager
@@ -28,6 +29,11 @@ then
   if [[ ! -a $GOPATH/bin/jsonpp ]]
   then
     go get github.com/jmhodges/jsonpp
+  fi
+  if ! command -v godoc >/dev/null
+  then
+    print "godoc not found, trying to install..."
+    sudo -E go get golang.org/x/tools/cmd/godoc
   fi
 else 
   print -P %F{001}Golang is not available%f
@@ -67,7 +73,7 @@ fi
 
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
 then
-  vim +PlugInstall +qall
+  vim +PlugInstall +qall && vim +GoInstallBinaries +qall
 fi
 
 if [[ -a ~/.vim/bundle/vimpager ]]
