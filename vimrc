@@ -53,6 +53,10 @@ cab .s sp ~/dotfiles/screenrc
 cab .t sp ~/dotfiles/tmux.conf
 cab src source ~/dotfiles/vimrc
 
+" search in current file
+command! -nargs=1 G vimgrep <args> % | copen
+" quickfix navigation:
+
 " useful programming abbreviations
 iab cl class
 iab fu function
