@@ -137,6 +137,7 @@ alias disp=$IMAGEVIEWER
 alias h=head
 alias g=grep
 alias gb='go build'
+alias gco='go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
 alias gg='go get'
 alias gt='go test'
 alias gi='grep -i'
