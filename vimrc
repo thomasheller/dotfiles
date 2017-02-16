@@ -77,7 +77,43 @@ let g:netrw_liststyle = 3 " tree style
 let g:netrw_browse_split = 2 " open files in vertical split
 let g:netrw_altv = 1 " left splitting
 let g:netrw_winsize = 25
-nmap <F12> :Vexplore<cr>
+nmap <F12> :Lexplore<cr>
+
+" folding
+set foldmethod=syntax
+set foldlevelstart=100 " high number to avoid folding on startup
+
+" outline
+nmap <F10> :TagbarToggle<cr>
+
+" Golang tags configuration
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 " auto-update on write in diff-mode
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif

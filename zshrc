@@ -17,7 +17,7 @@ path+=$HOME/.vim/bundle/vimpager
 if command -v apt-get >/dev/null
 then
   local -a USEFUL_APT_PACKAGES
-  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap tree)
+  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap tree ctags)
   if ! dpkg -s $USEFUL_APT_PACKAGES >/dev/null
   then
     sudo apt-get install $USEFUL_APT_PACKAGES
@@ -34,6 +34,11 @@ then
   then
     print "godoc not found, trying to install..."
     sudo -E go get golang.org/x/tools/cmd/godoc
+  fi
+  if ! command -v gotags >/dev/null
+  then
+    print "gotags not found, trying to install..."
+    go get -u github.com/jstemmer/gotags
   fi
 else 
   print -P %F{001}Golang is not available%f
@@ -69,6 +74,12 @@ if [[ ! -a ~/.vim/bundle/vim-signature ]]
 then
   echo Installing vim-signature...
   git clone https://github.com/kshenoy/vim-signature ~/.vim/bundle/vim-signature || print -P %F{001}Failed to install vim-signature%f
+fi
+
+if [[ ! -a ~/.vim/bundle/tagbar ]]
+then
+  echo Installing tagabar for vim...
+  git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar || print -P %F{001}Failed to install tagbar%f
 fi
 
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
