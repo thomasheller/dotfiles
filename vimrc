@@ -85,6 +85,7 @@ set foldlevelstart=100 " high number to avoid folding on startup
 
 " outline
 nmap <F10> :TagbarToggle<cr>
+let g:tagbar_sort = 0 " sort tags as they appear in the source (not by name)
 
 " Golang tags configuration
 let g:tagbar_type_go = {
