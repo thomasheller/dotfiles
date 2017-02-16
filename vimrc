@@ -72,7 +72,7 @@ ino ;t func Test(t *testing.T) {<CR>}<Esc>kwwi
 
 " Use netrw like NERDtree
 " thanks to https://shapeshed.com/vim-netrw/
-let g:netrw_banner = 1 " show the banner
+let g:netrw_banner = 0 " don't show the banner
 let g:netrw_liststyle = 3 " tree style
 let g:netrw_browse_split = 2 " open files in vertical split
 let g:netrw_altv = 1 " left splitting
