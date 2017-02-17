@@ -135,7 +135,7 @@ alias calc='bc -lq' # use scale=n to set precision manually
 alias cp='cp -i'
 alias disp=$IMAGEVIEWER
 alias h=head
-alias g=grep
+alias g='grep --color=auto'
 alias gb='go build'
 alias gco='go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
 alias gg='go get'
