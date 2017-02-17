@@ -3,7 +3,7 @@
 # latest version:
 # https://github.com/thomasheller/dotfiles/
 
-export GOPATH=$HOME/gocode
+export GOPATH=$HOME/go  # default as of Go 1.8
 
 typeset -U path
 path+=/usr/local/go/bin
@@ -102,7 +102,7 @@ export IMAGEVIEWER=display
 export OFFICE=libreoffice
 
 hash -d D=$DOTFILES
-hash -d G=$GOPATH
+hash -d G=$GOPATH/src
 hash -d T=$GOPATH/src/github.com/thomasheller
 hash -d TH=$HOME/thme/thomasheller-hugo
 hash -d W=$HOME/Downloads
