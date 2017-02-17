@@ -40,6 +40,11 @@ then
     print "gotags not found, trying to install..."
     go get -u github.com/jstemmer/gotags
   fi
+  if ! command -v godoctor >/dev/null
+  then
+    print "godoctor not found, trying to install..."
+    go get -u github.com/godoctor/godoctor
+  fi
 else 
   print -P %F{001}Golang is not available%f
 fi
@@ -74,6 +79,12 @@ if [[ ! -a ~/.vim/bundle/vim-signature ]]
 then
   echo Installing vim-signature...
   git clone https://github.com/kshenoy/vim-signature ~/.vim/bundle/vim-signature || print -P %F{001}Failed to install vim-signature%f
+fi
+
+if [[ ! -a ~/.vim/bundle/godoctor ]]
+then
+  echo Installing godoctor for vim...
+  git clone https://github.com/godoctor/godoctor.vim ~/.vim/bundle/godoctor || print -P %F{001}Failed to install godoctor%f
 fi
 
 if [[ ! -a ~/.vim/bundle/tagbar ]]
