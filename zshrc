@@ -135,39 +135,13 @@ alias .s="$EDITOR $DOTFILES/screenrc"
 alias .t="$EDITOR $DOTFILES/tmux.conf"
 alias .v="$EDITOR $DOTFILES/vimrc"
 alias .z="$EDITOR $DOTFILES/zshrc"
-alias 700='chmod -R 0700'
-alias 600='chmod -R 0600'
-alias 755='chmod -R 0755'
-alias 644='chmod -R 0644'
 alias ai='sudo apt-get install'
 alias ac='apt-cache search'
-alias md=mkdir
-alias rd=rmdir
-alias c=cat
 alias calc='bc -lq' # use scale=n to set precision manually
-alias cp='cp -i'
 alias disp=$IMAGEVIEWER
-alias h=head
-alias g='grep --color=auto'
-alias gb='go build'
-alias gco='go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
-alias gg='go get'
-alias gt='go test'
-alias gi='grep -i'
-alias gl='grep -l'
-alias gil='grep -il'
-alias gv='grep -v'
-alias gw='grep -w'
-alias l=ls
-alias la='ls -a'
-alias ll='ls -l'
-alias lart='ls -lart'
 alias mpl='mplayer'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias mv='mv -i'
 alias now='date +%Y-%m-%d-%H%M%S-%Z'
-alias rm='rm -i'
-alias t=tail
 # if [[ $TERM == screen ]]; then
 #   if [ -n "${TMUX+x}" ]; then
 #     alias vim='tmux new-window vim'
@@ -183,29 +157,6 @@ alias reds='redshift -t 6500:1000'
 alias sshproxy='ssh -v -D 8080 -C -N'
 alias src="source $DOTFILES/zshrc"
 alias wl='wc -l'
-alias Ga='git add'
-alias Gb='git branch'
-alias Gc='git clone'
-alias Gcim='git commit -m'
-alias Gciv='git commit -v'
-alias Gcl='git clean -d --interactive'
-alias Gco='git checkout'
-alias Gd='git diff'
-alias Gf='git fetch'
-alias Gg='git grep'
-alias Gi='git init'
-alias Gl='git log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --graph'
-alias Glf='git log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'
-alias Gm='git merge'
-alias Gpl='git pull'
-alias Gpo='git push origin'
-alias Gr='git reset'
-alias Gresethardmaster='git fetch origin && git reset --hard origin/master && git clean -df'
-alias Grm='git rm'
-alias Gs='git status'
-alias Gsh='git show'
-alias Gshowremote='git remote -v'
-alias Gt='git tag'
 
 alias -s gz='tar ztf' # TODO: should check for tar.gz
 alias -s tar='tar tf'
@@ -221,14 +172,6 @@ alias -s ods=$OFFICE # Calc
 alias -s xls=$OFFICE
 alias -s xlsx=$OFFICE
 
-function Gours() {
-  git checkout --ours $@ && git add $@
-}
-
-function Gtheirs() {
-  git checkout --theirs $@ && git add $@
-}
-
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls --color=auto'
 fi
@@ -239,8 +182,6 @@ alias img2pdf_mono="convert -compress jpeg -monochrome -resize 1240x1753 -extent
 
 alias outlook="java -jar ~/outlook/MSGViewer-1.9/MSGViewer.jar"
 alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
-
-function mcd() { mkdir -p $1 && cd $1 }
 
 function provision-gui() {
   sudo apt-get install chromium-browser gimp inkscape imagemagick virtualbox-guest-dkms texmaker meld redshift evince aterm libreoffice
@@ -329,9 +270,10 @@ then
   fi
 fi
 
-function checkdotfile {
-  local dotfile=.$1
-  local repofile=$1
+local -a dotfiles
+dotfiles=(zshenv zshrc vimrc screenrc tmux.conf)
+for repofile in $dotfiles; do
+  local dotfile=.$repofile
   if [[ ! -a ~/$dotfile ]]
   then
     # echo ~/$dotfile does not exist, symlinking to $DOTFILES/$repofile
@@ -341,11 +283,7 @@ function checkdotfile {
     print -P %F{001}~/$dotfile exists, but is not a symlink to ~/dotfiles/$repofile%f
   fi
   fi
-}
-checkdotfile zshrc
-checkdotfile vimrc
-checkdotfile screenrc
-checkdotfile tmux.conf
+done
 
 # check if ~/dotfiles is up-to-date with GitHub:
 function syncdotfiles {

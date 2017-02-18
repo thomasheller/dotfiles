@@ -12,3 +12,16 @@ Note that using these dotfiles will install various other software on
 your machine and change several settings. Please read and understand
 the entire code before trying them.
 
+## Notes
+
+### In which order are Zsh config files loaded?
+
+File          | Condition
+--------------+------------------
+`~/.zshenv`   | always
+`~/.zprofile` | login shell
+`~/.zshrc`    | interactive shell
+`~/.zlogin`   | login shell
+...           | ...
+`~/.zlogout`  | login shell
+
