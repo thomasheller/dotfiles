@@ -1,7 +1,7 @@
-# .zshrc - configuration for Zsh (zsh.org)
-# by Thomas Heller
-# latest version:
-# https://github.com/thomasheller/dotfiles/
+# ==============================================================================
+# ~/.zshrc -- configuration file for Zsh (<http://zsh.org>) by Thomas Heller
+# Latest version: <https://github.com/thomasheller/dotfiles/>
+# ==============================================================================
 
 export GOPATH=$HOME/go  # default as of Go 1.8
 
