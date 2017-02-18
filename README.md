@@ -16,12 +16,12 @@ the entire code before trying them.
 
 ### In which order are Zsh config files loaded?
 
-File          | Condition
---------------+------------------
-`~/.zshenv`   | always
-`~/.zprofile` | login shell
-`~/.zshrc`    | interactive shell
-`~/.zlogin`   | login shell
-...           | ...
-`~/.zlogout`  | login shell
+| File          | Condition         |
+| ------------- | ----------------- |
+| `~/.zshenv`   | always            |
+| `~/.zprofile` | login shell       |
+| `~/.zshrc`    | interactive shell |
+| `~/.zlogin`   | login shell       |
+| ...           | ...               |
+| `~/.zlogout`  | login shell       |
 
