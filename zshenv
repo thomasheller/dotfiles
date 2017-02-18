@@ -3,7 +3,7 @@
 # Latest version: <https://github.com/thomasheller/dotfiles/>
 # ==============================================================================
 
-# Define aliases that are safe for non-interactive shells, for expamle
+# Define aliases that are safe for non-interactive shells, for example
 # when executing commands from Vim.
 
 # shell essentials:
