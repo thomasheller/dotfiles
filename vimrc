@@ -126,9 +126,7 @@ vmap <leader>C <Plug>NERDCommenterToggle
 nmap <leader>G viw:Google<cr>
 vmap <leader>G :Google<cr>
 
-if exists("pathogen#infect()")
-  execute pathogen#infect()
-endif
+execute pathogen#infect()
 
 colorscheme ron
 syntax on

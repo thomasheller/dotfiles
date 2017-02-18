@@ -128,18 +128,18 @@ function install_everything() {
   # Fetch some Vim plug-ins using Git if Git is available. They will be
   # installed through Pathogen when Vim is launched.
   local -a pathogen_plugins
-  pathogen_plugins+=github.com/fatih/vim-go
-  pathogen_plugins+=github.com/godoctor/godoctor.vim
-  pathogen_plugins+=github.com/kshenoy/vim-signature
-  pathogen_plugins+=github.com/majutsushi/tagbar
-  pathogen_plugins+=github.com/rkitover/vimpager
-  pathogen_plugins+=github.com/scrooloose/nerdcommenter
-  pathogen_plugins+=github.com/szw/vim-g
-  pathogen_plugins+=github.com/will133/vim-dirdiff
+  pathogen_plugins+=fatih/vim-go
+  pathogen_plugins+=godoctor/godoctor.vim
+  pathogen_plugins+=kshenoy/vim-signature
+  pathogen_plugins+=majutsushi/tagbar
+  pathogen_plugins+=rkitover/vimpager
+  pathogen_plugins+=scrooloose/nerdcommenter
+  pathogen_plugins+=szw/vim-g
+  pathogen_plugins+=will133/vim-dirdiff
   local -a to_be_installed
-  for plugin in $tools; do
+  for plugin in $pathogen_plugins; do
     if [[ ! -a ~/.vim/bundle/${plugin:t} ]]; then
-      print to_be_installed+=$plugin
+      to_be_installed+=$plugin
     fi
   done
   if [[ ${#to_be_installed} > 0 ]]; then
