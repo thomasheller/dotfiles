@@ -105,6 +105,11 @@ else
   export PAGER=less
 fi
 
+if command -v npm >/dev/null && ! command -v markdown >/dev/null
+then
+  sudo npm install markdown-to-html -g
+fi
+
 export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f '
 export EDITOR=vim
 export DOTFILES=$HOME/dotfiles
