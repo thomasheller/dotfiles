@@ -12,9 +12,70 @@ path+=$GOPATH/bin
 path+=$HOME/bin
 path+=$HOME/.vim/bundle/vimpager
 
-# install useful stuff:
+# ========================================================================== {{{
+# Install useful stuff
+# ==========================================================================
 
-if command -v apt-get >/dev/null
+# has checks if a command is (several commands are) currently available.
+# Helper function for installing useful stuff.
+# usage:
+# has [COMMAND]...
+function has() {
+  for cmd in $@; do
+    if ! command -v $cmd >/dev/null; then
+      return 1
+    fi
+  done
+  return 0
+}
+
+# Install Go-related/Go-powered tools using `go get` if Go is available.
+if has go; then
+  local -a go_tools
+  go_tools+=github.com/godoctor/godoctor
+  go_tools+=github.com/jmhodges/jsonpp
+  go_tools+=github.com/jstemmer/gotags
+  go_tools+=golang.org/x/tools/cmd/godoc
+  for tool in $go_tools; do
+    if ! has ${tool:t}; then
+      print "${tool:t} not found, installing via go get."
+      go get $tool
+    fi
+  done
+fi
+
+# Install some tools through npm, if npm is available.
+if has npm; then
+  local -A npm_tools
+  npm_tools+=(bower bower)
+  npm_tools+=(markdown markdown-to-html)
+  for tool in ${(@k)npm_tools}; do
+    if ! has $tool; then
+      print "$tool not found, installing $npm_tools[$tool] via npm."
+      sudo npm install $npm_tools[$tool] -g
+    fi
+  done
+fi
+
+# Fetch some Vim plug-ins using Git if Git is available. They will be
+# installed through Pathogen later.
+if has git; then
+  local -a pathogen_plugins
+  pathogen_plugins+=godoctor/godoctor.vim
+  pathogen_plugins+=kshenoy/vim-signature
+  pathogen_plugins+=majutsushi/tagbar
+  pathogen_plugins+=rkitover/vimpager
+  pathogen_plugins+=szw/vim-g
+  pathogen_plugins+=will133/vim-dirdiff
+  for plugin in $pathogen_plugins; do
+    if [[ ! -a ~/.vim/bundle/${plugin:t} ]]; then
+      print "${plugin:t} not found, installing."
+      git clone https://github.com/$plugin ~/.vim/bundle/${plugin:t}
+    fi
+  done
+fi
+
+if has apt-get
 then
   local -a USEFUL_APT_PACKAGES
   USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap tree ctags)
@@ -24,73 +85,12 @@ then
   fi
 fi
 
-if command -v go >/dev/null
-then
-  if [[ ! -a $GOPATH/bin/jsonpp ]]
-  then
-    go get github.com/jmhodges/jsonpp
-  fi
-  if ! command -v godoc >/dev/null
-  then
-    print "godoc not found, trying to install..."
-    sudo -E go get golang.org/x/tools/cmd/godoc
-  fi
-  if ! command -v gotags >/dev/null
-  then
-    print "gotags not found, trying to install..."
-    go get -u github.com/jstemmer/gotags
-  fi
-  if ! command -v godoctor >/dev/null
-  then
-    print "godoctor not found, trying to install..."
-    go get -u github.com/godoctor/godoctor
-  fi
-else 
-  print -P %F{001}Golang is not available%f
-fi
-
 if [[ ! -a ~/.vim/autoload/plug.vim ]]
 then
   if ! curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   then
     print -P %F{001}Failed to download vim-plug%f
   fi
-fi
-
-if [[ ! -a ~/.vim/bundle/vim-dirdiff ]]
-then
-  echo Installing vim-dirdiff...
-  git clone https://github.com/will133/vim-dirdiff ~/.vim/bundle/vim-dirdiff || print -P %F{001}Failed to install vim-dirdiff%f
-fi
-
-if [[ ! -a ~/.vim/bundle/vimpager ]]
-then
-  echo Installing vimpager...
-  git clone https://github.com/rkitover/vimpager ~/.vim/bundle/vimpager || print -P %F{001}Failed to install vimpager%f
-fi
-
-if [[ ! -a ~/.vim/bundle/vim-g ]]
-then
-  echo Installing vim-g...
-  git clone https://github.com/szw/vim-g ~/.vim/bundle/vim-g || print -P %F{001}Failed to install vim-g%f
-fi
-
-if [[ ! -a ~/.vim/bundle/vim-signature ]]
-then
-  echo Installing vim-signature...
-  git clone https://github.com/kshenoy/vim-signature ~/.vim/bundle/vim-signature || print -P %F{001}Failed to install vim-signature%f
-fi
-
-if [[ ! -a ~/.vim/bundle/godoctor ]]
-then
-  echo Installing godoctor for vim...
-  git clone https://github.com/godoctor/godoctor.vim ~/.vim/bundle/godoctor || print -P %F{001}Failed to install godoctor%f
-fi
-
-if [[ ! -a ~/.vim/bundle/tagbar ]]
-then
-  echo Installing tagabar for vim...
-  git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar || print -P %F{001}Failed to install tagbar%f
 fi
 
 if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
@@ -105,10 +105,7 @@ else
   export PAGER=less
 fi
 
-if command -v npm >/dev/null && ! command -v markdown >/dev/null
-then
-  sudo npm install markdown-to-html -g
-fi
+# ========================================================================== }}}
 
 export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f '
 export EDITOR=vim
