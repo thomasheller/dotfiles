@@ -69,10 +69,6 @@ function install_everything() {
   fi
   unset to_be_installed
 
-
-
-  # TODO: pathogen
-
   # Install Go-related/Go-powered tools using `go get` if Go is available.
   local -a go_tools
   go_tools+=github.com/godoctor/godoctor
