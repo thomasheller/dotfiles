@@ -166,13 +166,13 @@ alias mv='mv -i'
 alias now='date +%Y-%m-%d-%H%M%S-%Z'
 alias rm='rm -i'
 alias t=tail
-if [[ $TERM == screen ]]; then
-  if [ -n "${TMUX+x}" ]; then
-    alias vim='tmux new-window vim'
-  else
-    alias vim='screen vim'
-  fi
-fi
+# if [[ $TERM == screen ]]; then
+#   if [ -n "${TMUX+x}" ]; then
+#     alias vim='tmux new-window vim'
+#   else
+#     alias vim='screen vim'
+#   fi
+# fi
 alias v=vim
 alias vd=vimdiff
 alias vo='vim -O'
