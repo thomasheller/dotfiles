@@ -119,12 +119,6 @@ let g:tagbar_type_go = {
 " auto-update on write in diff-mode
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
-" Plug plugins
-call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdcommenter'
-Plug 'fatih/vim-go'
-call plug#end()
-
 nmap <leader>C <Plug>NERDCommenterToggle
 vmap <leader>C <Plug>NERDCommenterToggle
 

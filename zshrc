@@ -16,6 +16,11 @@ path+=$HOME/.vim/bundle/vimpager
 # Install useful stuff
 # ==========================================================================
 
+# warn tells the user about install problems in red color.
+function warn() {
+  print -P "%F{001}$@%f"
+}
+
 # has checks if a command is (several commands are) currently available.
 # Helper function for installing useful stuff.
 # usage:
@@ -29,83 +34,142 @@ function has() {
   return 0
 }
 
-# Install Go-related/Go-powered tools using `go get` if Go is available.
-if has go; then
+function install_everything() {
+  # Let's see what's available through package management.
+  local -A cmds # commands and their packages
+  cmds+=(bzip2 bzip2) # includes bunzip2
+  cmds+=(ctags exuberant-ctags)
+  cmds+=(curl curl)
+  cmds+=(git git)
+  cmds+=(go golang)
+  cmds+=(netcat netcat-openbsd)
+  cmds+=(nmap nmap)
+  cmds+=(pdfgrep pdfgrep)
+  cmds+=(tmux tmux)
+  cmds+=(tree tree)
+  cmds+=(vim vim)
+  cmds+=(zip unzip)
+  cmds+=(zip zip)
+  cmds+=(zsh zsh) # should be installed already
+  local -a to_be_installed
+  for cmd in ${(@k)cmds}; do
+    if ! has $cmd; then
+      to_be_installed+=$cmds[$cmd]
+    fi
+  done
+  if [[ ${#to_be_installed} > 0 ]]; then
+    if has apt-get; then
+      echo "The following packages are missing, installing:"
+      echo $to_be_installed
+      sudo apt-get install $to_be_installed
+    else
+      warn "Could not install the following packages because apt-get is missing:"
+      warn $to_be_installed
+    fi
+  fi
+  unset to_be_installed
+
+
+
+  # TODO: pathogen
+
+  # Install Go-related/Go-powered tools using `go get` if Go is available.
   local -a go_tools
   go_tools+=github.com/godoctor/godoctor
   go_tools+=github.com/jmhodges/jsonpp
   go_tools+=github.com/jstemmer/gotags
   go_tools+=golang.org/x/tools/cmd/godoc
-  for tool in $go_tools; do
+  local -a to_be_installed
+  for tool in $tools; do
     if ! has ${tool:t}; then
-      print "${tool:t} not found, installing via go get."
-      go get $tool
+      print to_be_installed+=$tool
     fi
   done
-fi
+  if [[ ${#to_be_installed} > 0 ]]; then
+    if has go; then
+      echo "The following Go-related commands are missing, installing:"
+      echo $to_be_installed
+      for p in $to_be_installed; do
+	go get $p
+      done
+    else
+      warn "Could not install from the following paths because Go is missing:"
+      warn $to_be_installed
+    fi
+  fi
+  unset to_be_installed
 
-# Install some tools through npm, if npm is available.
-if has npm; then
+  # Install some tools through npm, if npm is available.
   local -A npm_tools
   npm_tools+=(bower bower)
   npm_tools+=(markdown markdown-to-html)
+  local -a to_be_installed
   for tool in ${(@k)npm_tools}; do
     if ! has $tool; then
-      print "$tool not found, installing $npm_tools[$tool] via npm."
-      sudo npm install $npm_tools[$tool] -g
+      to_be_installed+=$npm_tools[$tool]
     fi
   done
-fi
+  if [[ ${#to_be_installed} > 0 ]]; then
+    if has npm; then
+      echo "The following npm tools are missing, installing:"
+      echo $to_be_installed
+      sudo npm install $to_be_installed -g
+    else
+      warn "Could not install the following because npm is missing:"
+      warn $to_be_installed
+    fi
+  fi
+  unset to_be_installed
 
-# Fetch some Vim plug-ins using Git if Git is available. They will be
-# installed through Pathogen later.
-if has git; then
+  # Install Pathogen for Vim plug-in management.
+  if [[ ! -a ~/.vim/autoload/pathogen.vim ]]; then
+    echo "Pathogen is not available, installing."
+    mkdir -p ~/.vim/autoload
+    mkdir -p ~/.vim/bundle
+    wget -nv -O ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+  fi
+
+  # Fetch some Vim plug-ins using Git if Git is available. They will be
+  # installed through Pathogen when Vim is launched.
   local -a pathogen_plugins
-  pathogen_plugins+=godoctor/godoctor.vim
-  pathogen_plugins+=kshenoy/vim-signature
-  pathogen_plugins+=majutsushi/tagbar
-  pathogen_plugins+=rkitover/vimpager
-  pathogen_plugins+=szw/vim-g
-  pathogen_plugins+=will133/vim-dirdiff
-  for plugin in $pathogen_plugins; do
+  pathogen_plugins+=github.com/fatih/vim-go
+  pathogen_plugins+=github.com/godoctor/godoctor.vim
+  pathogen_plugins+=github.com/kshenoy/vim-signature
+  pathogen_plugins+=github.com/majutsushi/tagbar
+  pathogen_plugins+=github.com/rkitover/vimpager
+  pathogen_plugins+=github.com/scrooloose/nerdcommenter
+  pathogen_plugins+=github.com/szw/vim-g
+  pathogen_plugins+=github.com/will133/vim-dirdiff
+  local -a to_be_installed
+  for plugin in $tools; do
     if [[ ! -a ~/.vim/bundle/${plugin:t} ]]; then
-      print "${plugin:t} not found, installing."
-      git clone https://github.com/$plugin ~/.vim/bundle/${plugin:t}
+      print to_be_installed+=$plugin
     fi
   done
-fi
-
-if has apt-get
-then
-  local -a USEFUL_APT_PACKAGES
-  USEFUL_APT_PACKAGES=(git zsh vim vim-pathogen screen curl netcat-openbsd zip unzip bzip2 golang pdfgrep tmux nmap tree ctags)
-  if ! dpkg -s $USEFUL_APT_PACKAGES >/dev/null
-  then
-    sudo apt-get install $USEFUL_APT_PACKAGES
+  if [[ ${#to_be_installed} > 0 ]]; then
+    if has git; then
+      echo "The following Vim plug-ins are missing, installing:"
+      echo $to_be_installed
+      for r in $to_be_installed; do
+	git clone https://github.com/$r ~/.vim/bundle/${r:t}
+      done
+    else
+      warn "Could not clone the following repos because Git is missing:"
+      warn $to_be_installed
+    fi
   fi
-fi
+  unset to_be_installed
+}
 
-if [[ ! -a ~/.vim/autoload/plug.vim ]]
-then
-  if ! curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  then
-    print -P %F{001}Failed to download vim-plug%f
-  fi
-fi
+install_everything
 
-if [[ -a ~/.vim/autoload/plug.vim && ( ! -d ~/.vim/plugged/nerdcommenter || ! -d ~/.vim/plugged/vim-go ) ]]
-then
-  vim +PlugInstall +qall && vim +GoInstallBinaries +qall
-fi
+# ========================================================================== }}}
 
-if [[ -a ~/.vim/bundle/vimpager ]]
-then
+if has vimpager; then
   export PAGER=vimpager
 else
   export PAGER=less
 fi
-
-# ========================================================================== }}}
 
 export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f '
 export EDITOR=vim
