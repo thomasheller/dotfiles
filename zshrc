@@ -188,6 +188,8 @@ alias W="cd ~W"
 
 alias Dpl='cd ~D && Gpl'
 
+alias sx='startx -- -nolisten tcp' # start X for local use
+
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
