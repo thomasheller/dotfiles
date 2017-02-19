@@ -180,6 +180,8 @@ hash -d T=$GOPATH/src/github.com/thomasheller
 hash -d TH=$HOME/thme/thomasheller-hugo
 hash -d W=$HOME/Downloads
 
+alias f='for i in'
+
 alias D="cd ~D"
 alias G="cd ~G"
 alias T="cd ~T"
