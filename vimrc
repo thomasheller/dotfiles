@@ -128,7 +128,7 @@ nmap <leader>G viw:Google<cr>
 vmap <leader>G :Google<cr>
 
 execute pathogen#infect()
-
+filetype plugin indent on
 colorscheme ron
 syntax on
 
