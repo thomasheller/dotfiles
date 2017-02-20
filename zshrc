@@ -199,6 +199,7 @@ alias .s="$EDITOR $DOTFILES/screenrc"
 alias .t="$EDITOR $DOTFILES/tmux.conf"
 alias .v="$EDITOR $DOTFILES/vimrc"
 alias .z="$EDITOR $DOTFILES/zshrc"
+alias .ze="$EDITOR $DOTFILES/zshenv"
 alias ai='sudo apt-get install'
 alias ac='apt-cache search'
 alias calc='bc -lq' # use scale=n to set precision manually

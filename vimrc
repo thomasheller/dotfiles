@@ -49,6 +49,7 @@ set shell=zsh
 " edit and load dotfiles
 cab .v sp ~/dotfiles/vimrc
 cab .z sp ~/dotfiles/zshrc
+cab .ze sp ~/dotfiles/zshenv
 cab .s sp ~/dotfiles/screenrc
 cab .t sp ~/dotfiles/tmux.conf
 cab src source ~/dotfiles/vimrc
