@@ -47,12 +47,12 @@ set shell=zsh
 " set shellcmdflag+=i
 
 " edit and load dotfiles
-cab .v sp ~/dotfiles/vimrc
-cab .z sp ~/dotfiles/zshrc
-cab .ze sp ~/dotfiles/zshenv
-cab .s sp ~/dotfiles/screenrc
-cab .t sp ~/dotfiles/tmux.conf
-cab src source ~/dotfiles/vimrc
+command! Vrc vsp ~/dotfiles/vimrc
+command! Zrc vsp ~/dotfiles/zshrc
+command! Zenv vsp ~/dotfiles/zshenv
+command! Src vsp ~/dotfiles/screenrc
+command! Trc vsp ~/dotfiles/tmux.conf
+command! SRC source ~/dotfiles/vimrc
 
 " search in current file
 command! -nargs=1 G vimgrep/<args>/ % | copen
