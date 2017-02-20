@@ -219,7 +219,7 @@ alias vo='vim -O'
 alias p='print -l'
 alias reds='redshift -t 6500:1000'
 alias sshproxy='ssh -v -D 8080 -C -N'
-alias src="source $DOTFILES/zshrc"
+alias src="source $DOTFILES/zshenv && source $DOTFILES/zshrc"
 alias wl='wc -l'
 
 alias -s gz='tar ztf' # TODO: should check for tar.gz
