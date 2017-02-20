@@ -29,6 +29,7 @@ alias 644='chmod -R 0644'
 
 # Git:
 alias Ga='git add'
+alias Gau='git add -u'
 alias Gb='git branch'
 alias Gc='git clone'
 alias Gcim='git commit -m'
