@@ -88,6 +88,9 @@ set foldlevelstart=100 " high number to avoid folding on startup
 nmap <F10> :TagbarToggle<cr>
 let g:tagbar_sort = 0 " sort tags as they appear in the source (not by name)
 
+" GoGet added because it's not available through vim-go
+command! GoGet :!go get
+
 " Golang tags configuration
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
