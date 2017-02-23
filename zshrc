@@ -77,7 +77,7 @@ function install_everything() {
   go_tools+=github.com/thomasheller/2
   go_tools+=golang.org/x/tools/cmd/godoc
   local -a to_be_installed
-  for tool in $tools; do
+  for tool in $go_tools; do
     if ! has ${tool:t}; then
       print to_be_installed+=$tool
     fi
