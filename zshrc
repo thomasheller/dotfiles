@@ -250,7 +250,7 @@ alias outlook="java -jar ~/outlook/MSGViewer-1.9/MSGViewer.jar"
 alias zettelkasten='java -jar /usr/local/bin/Zettelkasten.jar'
 
 function provision-gui() {
-  sudo apt-get install chromium-browser gimp inkscape imagemagick virtualbox-guest-dkms texmaker meld redshift evince aterm libreoffice
+  sudo apt-get install chromium-browser gimp inkscape imagemagick jhead virtualbox-guest-dkms texmaker meld redshift evince aterm libreoffice
 }
 
 function go64() {
