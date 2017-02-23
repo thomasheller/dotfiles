@@ -76,3 +76,8 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lart='ls -lart'
 
+# zmv:
+autoload -U zmv
+alias zmv='noglob zmv'
+
+
