@@ -71,7 +71,9 @@ function install_everything() {
 
   # Install Go-related/Go-powered tools using `go get` if Go is available.
   local -a go_tools
+  go_tools+=github.com/client9/misspell/cmd/misspell
   go_tools+=github.com/godoctor/godoctor
+  go_tools+=github.com/gordonklaus/ineffassign
   go_tools+=github.com/jmhodges/jsonpp
   go_tools+=github.com/jstemmer/gotags
   go_tools+=github.com/stripe/safesql
