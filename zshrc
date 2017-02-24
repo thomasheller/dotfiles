@@ -79,7 +79,7 @@ function install_everything() {
   local -a to_be_installed
   for tool in $go_tools; do
     if ! has ${tool:t}; then
-      print to_be_installed+=$tool
+      to_be_installed+=$tool
     fi
   done
   if [[ ${#to_be_installed} > 0 ]]; then
