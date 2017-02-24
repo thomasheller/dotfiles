@@ -80,4 +80,6 @@ alias lart='ls -lart'
 autoload -U zmv
 alias zmv='noglob zmv'
 
+# global aliases:
+alias -g 2nul='2>/dev/null'
 
