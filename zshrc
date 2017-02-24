@@ -74,6 +74,7 @@ function install_everything() {
   go_tools+=github.com/godoctor/godoctor
   go_tools+=github.com/jmhodges/jsonpp
   go_tools+=github.com/jstemmer/gotags
+  go_tools+=github.com/stripe/safesql
   go_tools+=github.com/thomasheller/2
   go_tools+=golang.org/x/tools/cmd/godoc
   local -a to_be_installed
