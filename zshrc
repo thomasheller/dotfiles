@@ -42,6 +42,7 @@ function install_everything() {
   cmds+=(curl curl)
   cmds+=(git git)
   cmds+=(go golang)
+  cmds+=(ncdu ncdu)
   cmds+=(netcat netcat-openbsd)
   cmds+=(nmap nmap)
   cmds+=(pdfgrep pdfgrep)
