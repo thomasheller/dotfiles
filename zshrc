@@ -194,7 +194,9 @@ alias T="cd ~T"
 alias TH="cd ~TH"
 alias W="cd ~W"
 
-alias Dpl='cd ~D && Gpl'
+alias Dd="git -C $DOTFILES diff"
+alias Dpl="git -C $DOTFILES pull"
+alias Ds="git -C $DOTFILES status"
 
 alias sx='startx -- -nolisten tcp' # start X for local use
 
