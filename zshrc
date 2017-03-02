@@ -45,6 +45,7 @@ function install_everything() {
   cmds+=(ncdu ncdu)
   cmds+=(netcat netcat-openbsd)
   cmds+=(nmap nmap)
+  cmds+=(npm npm)
   cmds+=(pdfgrep pdfgrep)
   cmds+=(tmux tmux)
   cmds+=(tree tree)
