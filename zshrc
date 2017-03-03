@@ -81,6 +81,7 @@ function install_everything() {
   go_tools+=github.com/stripe/safesql
   go_tools+=github.com/thomasheller/2
   go_tools+=golang.org/x/tools/cmd/godoc
+  go_tools+=golang.org/x/tools/cmd/present
   local -a to_be_installed
   for tool in $go_tools; do
     if ! has ${tool:t}; then
@@ -224,7 +225,8 @@ alias now='date +%Y-%m-%d-%H%M%S-%Z'
 # fi
 alias v=vim
 alias vd=vimdiff
-alias vo='vim -O'
+alias vo='vim -o'
+alias vO='vim -O'
 alias p='print -l'
 alias reds='redshift -t 6500:1000'
 alias sshproxy='ssh -v -D 8080 -C -N'
