@@ -58,16 +58,17 @@ function Gtheirs() { git checkout --theirs $@ && git add $@ }
 
 # grep:
 alias g='grep --color=auto'
-alias gi='grep -i'
-alias gl='grep -l'
-alias gil='grep -il'
-alias gv='grep -v'
-alias gw='grep -w'
+alias gi='g -i'
+alias gl='g -l'
+alias gil='g -il'
+alias gv='g -v'
+alias gw='g -w'
 
 # Go-related aliases:
 alias gb='go build'
 alias gco='go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
 alias gg='go get'
+alias golint='gometalinter --enable-all'
 alias gt='go test'
 
 # ls:
