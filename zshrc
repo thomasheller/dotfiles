@@ -183,6 +183,7 @@ export OFFICE=libreoffice
 
 hash -d D=$DOTFILES
 hash -d G=$GOPATH/src
+hash -d S=$HOME/Store
 hash -d T=$GOPATH/src/github.com/thomasheller
 hash -d TH=$HOME/thme/thomasheller-hugo
 hash -d W=$HOME/Downloads
