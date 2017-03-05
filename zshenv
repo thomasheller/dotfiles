@@ -76,6 +76,7 @@ alias l=ls
 alias la='ls -a'
 alias ll='ls -l'
 alias lart='ls -lart'
+alias big='ls -lSrh'
 
 # zmv:
 autoload -U zmv
