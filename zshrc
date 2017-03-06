@@ -40,7 +40,9 @@ function install_everything() {
   cmds+=(bzip2 bzip2) # includes bunzip2
   cmds+=(ctags exuberant-ctags)
   cmds+=(curl curl)
+  cmds+=(dot graphviz)
   cmds+=(git git)
+  cmds+=(gnuplot gnuplot)
   cmds+=(go golang)
   cmds+=(ncdu ncdu)
   cmds+=(netcat netcat-openbsd)

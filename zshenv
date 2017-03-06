@@ -85,3 +85,62 @@ alias zmv='noglob zmv'
 # global aliases:
 alias -g 2nul='2>/dev/null'
 
+# gnuplot, graphviz:
+#
+# plot function(s) given on the command line, e.g.:
+#   $ plot 'sin(x),cos(x+.5*pi),abs(x)'
+function plot() {
+  gnuplot -persist <<EOF
+    set style line 1 lc rgb '#0066aa' lt 1 lw 1 pt 7 ps 1
+    plot $1 ls 1 
+EOF
+}
+
+# plot a directed graph given on the command line, e.g.:
+#   $ plotdg 'a->b a->c'
+function plotdg() {
+  local tmp=$(mktemp /tmp/graphviz.XXXXXXXXXX)
+  dot -Tpng -o $tmp <<EOF && echo $tmp && display $tmp
+    digraph { $@ }
+EOF
+}
+#
+# plot a directed graph from a file, e.g.:
+#   $ cat >/tmp/digraph.dat
+#   a->b
+#   a->c
+#   ^D
+#   $ plotdgf /tmp/digraph.dat
+function plotdgf() {
+  local tmp=$(mktemp /tmp/graphviz.XXXXXXXXXX)
+  echo "digraph { $(cat $1) }" | dot -Tpng -o $tmp && echo $tmp && display $tmp
+}
+
+# plot values from a file as a line graph with points, e.g.:
+#   $ cat >/tmp/graph.dat
+#   1 2.25
+#   2 1
+#   3 4
+#   ^D
+#   $ plotlpf /tmp/graph.dat
+function plotlpf() {
+  gnuplot -persist <<EOF
+    set style line 1 lc rgb '#0066aa' lt 1 lw 1 pt 7 ps 1
+    plot "$1" with linespoints ls 1
+EOF
+}
+
+# plot CSV file data as a line graph with points, e.g.:
+#   $ cat >/tmp/graph.csv
+#   1,2.25
+#   2,1
+#   3,4
+#   ^D
+#   $ plotlpcsv /tmp/graph.csv
+function plotlpcsv() {
+  gnuplot -persist <<EOF
+    set style line 1 lc rgb '#0066aa' lt 1 lw 1 pt 7 ps 1
+    set datafile separator ","
+    plot "$1" with linespoints ls 1
+EOF
+}
