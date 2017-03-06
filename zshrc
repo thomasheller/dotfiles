@@ -75,15 +75,34 @@ function install_everything() {
 
   # Install Go-related/Go-powered tools using `go get` if Go is available.
   local -a go_tools
+  go_tools+=github.com/GoASTScanner/gas
+  go_tools+=github.com/alecthomas/gocyclo
   go_tools+=github.com/client9/misspell/cmd/misspell
   go_tools+=github.com/godoctor/godoctor
+  go_tools+=github.com/golang/lint/golint
   go_tools+=github.com/gordonklaus/ineffassign
+  go_tools+=github.com/jgautheron/goconst/cmd/goconst
   go_tools+=github.com/jmhodges/jsonpp
   go_tools+=github.com/jstemmer/gotags
+  go_tools+=github.com/kisielk/errcheck
+  go_tools+=github.com/mdempsky/unconvert
+  go_tools+=github.com/mibk/dupl
+  go_tools+=github.com/mvdan/interfacer/cmd/interfacer
+  go_tools+=github.com/ncw/rclone
+  go_tools+=github.com/opennota/check/cmd/aligncheck
+  go_tools+=github.com/opennota/check/cmd/structcheck
+  go_tools+=github.com/opennota/check/cmd/varcheck
   go_tools+=github.com/stripe/safesql
   go_tools+=github.com/thomasheller/2
+  go_tools+=github.com/tsenart/deadcode
+  go_tools+=github.com/walle/lll/cmd/lll
   go_tools+=golang.org/x/tools/cmd/godoc
+  go_tools+=golang.org/x/tools/cmd/goimports
+  go_tools+=golang.org/x/tools/cmd/gotype
   go_tools+=golang.org/x/tools/cmd/present
+  go_tools+=honnef.co/go/simple/cmd/gosimple
+  go_tools+=honnef.co/go/staticcheck/cmd/staticcheck
+  go_tools+=honnef.co/go/unused/cmd/unused
   local -a to_be_installed
   for tool in $go_tools; do
     if ! has ${tool:t}; then
