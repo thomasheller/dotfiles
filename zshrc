@@ -99,6 +99,7 @@ function install_everything() {
   go_tools+=golang.org/x/tools/cmd/godoc
   go_tools+=golang.org/x/tools/cmd/goimports
   go_tools+=golang.org/x/tools/cmd/gotype
+  go_tools+=golang.org/x/tools/cmd/guru
   go_tools+=golang.org/x/tools/cmd/present
   go_tools+=honnef.co/go/simple/cmd/gosimple
   go_tools+=honnef.co/go/staticcheck/cmd/staticcheck
