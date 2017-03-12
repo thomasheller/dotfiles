@@ -85,6 +85,7 @@ function install_everything() {
   go_tools+=github.com/jmhodges/jsonpp
   go_tools+=github.com/jstemmer/gotags
   go_tools+=github.com/kisielk/errcheck
+  go_tools+=github.com/mailgun/godebug
   go_tools+=github.com/mdempsky/unconvert
   go_tools+=github.com/mibk/dupl
   go_tools+=github.com/mvdan/interfacer/cmd/interfacer
