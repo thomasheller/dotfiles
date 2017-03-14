@@ -82,6 +82,9 @@ alias big='ls -lSrh'
 autoload -U zmv
 alias zmv='noglob zmv'
 
+# globbing preferences:
+alias mgo='noglob multigoogle'
+
 # global aliases:
 alias -g 2nul='2>/dev/null'
 

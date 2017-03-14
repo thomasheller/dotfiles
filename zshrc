@@ -95,6 +95,7 @@ function install_everything() {
   go_tools+=github.com/opennota/check/cmd/varcheck
   go_tools+=github.com/stripe/safesql
   go_tools+=github.com/thomasheller/2
+  go_tools+=github.com/thomasheller/multigoogle
   go_tools+=github.com/tsenart/deadcode
   go_tools+=github.com/walle/lll/cmd/lll
   go_tools+=golang.org/x/tools/cmd/godoc
