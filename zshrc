@@ -411,6 +411,13 @@ if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
   source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
 
+if [ ! -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  sudo apt-get install zsh-syntax-highlighting
+fi
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 if [[ -a ~/.zshrc.local ]]
 then
   source ~/.zshrc.local
