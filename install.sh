@@ -19,5 +19,5 @@ git clone https://github.com/thomasheller/dotfiles
 exec zsh
 
 # 4. Load configuration
-source dotfiles/zshrc
+source dotfiles/zshall
 
