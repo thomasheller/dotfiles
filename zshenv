@@ -147,3 +147,8 @@ function plotlpcsv() {
     plot "$1" with linespoints ls 1
 EOF
 }
+
+# Docker containers:
+alias DO='docker run -it --rm ubuntu /bin/bash -c "cd && exec bash"'
+alias DOz='docker run -it --rm ubuntu /bin/bash -c "apt-get -qq update && apt-get install -qq git sudo zsh >/dev/null && cd && exec zsh"'
+alias DOth='docker run -it --rm ubuntu /bin/bash -c "apt-get -qq update && apt-get install -qq git sudo zsh >/dev/null && cd && git clone https://github.com/thomasheller/dotfiles && zsh dotfiles/zshall && exec zsh"'
