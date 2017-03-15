@@ -237,6 +237,7 @@ alias .ze="$EDITOR $DOTFILES/zshenv"
 alias ai='sudo apt-get install'
 alias ac='apt-cache search'
 alias al='dpkg-query -L'
+alias au='sudo apt-get update'
 alias calc='bc -lq' # use scale=n to set precision manually
 alias disp=$IMAGEVIEWER
 alias mpl='mplayer'
@@ -411,12 +412,12 @@ if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
   source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
 
-if [ ! -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  sudo apt-get install zsh-syntax-highlighting
-fi
-if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+# if [ ! -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+#   sudo apt-get install zsh-syntax-highlighting
+# fi
+# if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+#   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# fi
 
 if [[ -a ~/.zshrc.local ]]
 then
