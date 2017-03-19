@@ -71,6 +71,8 @@ iab ret return
 ino ;f func  {<CR>}<Esc>kela
 ino ;t func Test(t *testing.T) {<CR>}<Esc>kwwi
 
+iab Ylorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 " Use netrw like NERDtree
 " thanks to https://shapeshed.com/vim-netrw/
 let g:netrw_banner = 0 " don't show the banner
@@ -89,7 +91,7 @@ nmap <F10> :TagbarToggle<cr>
 let g:tagbar_sort = 0 " sort tags as they appear in the source (not by name)
 
 " GoGet added because it's not available through vim-go
-command! GoGet :!go get
+" command! GoGet :!go get
 
 " Golang tags configuration
 let g:tagbar_type_go = {
