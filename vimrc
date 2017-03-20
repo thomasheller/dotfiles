@@ -15,10 +15,12 @@ nnoremap <f1> :up\|:GoBuild<cr>
 nnoremap <f2> :up\|:GoTest<cr>
 nnoremap <f3> :up<cr>
 nnoremap <f4> :q<cr>
+nnoremap <f9> :next<cr>
 imap <f1> <esc><f3>
 imap <f2> <esc><f2>
 imap <f3> <esc><f3>
 imap <f4> <esc><f4>
+imap <f9> <esc><f9>
 set pastetoggle=<f5>
 
 " insert whitespace easily from normal mode
