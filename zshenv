@@ -13,6 +13,7 @@ alias t=tail
 
 # directory management:
 alias md=mkdir
+alias mdp='mkdir -p'
 alias rd=rmdir
 function mcd() { mkdir -p $@ && cd $1 } # create dir(s) and cd (to the first)
 
