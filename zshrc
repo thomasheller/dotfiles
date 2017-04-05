@@ -201,7 +201,11 @@ else
   export PAGER=less
 fi
 
-export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f '
+if [[ $TERM == dumb ]]; then
+  export PROMPT='(%?)%n@%m:%~%# '
+else
+  export PROMPT='%(?.%F{006}.%F{001})%B(%b%f%?%(?.%F{006}.%F{001})%B)%b%n%F{006}%B@%b%f%m%F{006}%B:%b%f%~%F{006}%B%#%b%f ' 
+fi
 export EDITOR=vim
 export DOTFILES=$HOME/dotfiles
 export PDFVIEWER=evince
@@ -402,7 +406,7 @@ function syncdotfiles {
   fi
 }
 
-if [[ $TERM == screen ]]
+if [[ $TERM != xterm ]]
 then
   echo Type \`syncdotfiles\' to sync dotfiles
 else
@@ -423,6 +427,10 @@ fi
 #   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # fi
 
+if [[ $TERM == dumb ]]; then
+  unset zle_bracketed_paste
+fi
+
 if [[ -a ~/.zshrc.local ]]
 then
   source ~/.zshrc.local
@@ -436,17 +444,19 @@ function hn() {
 }
 
 function zshexit() {
-  cd ~D
-  if ! Gs | grep "up-to-date with 'origin/master'"
-  then
-    echo "Maybe you wanted to push your dotfiles?"
-    echo
-    Gs
-    echo
-    echo "Press enter to return to a shell."
-    echo "Press ^C if you really want to quit."
-    read line
-    exec zsh
+  if [[ $TERM != dumb ]]; then
+    cd ~D
+    if ! Gs | grep "up-to-date with 'origin/master'"
+    then
+      echo "Maybe you wanted to push your dotfiles?"
+      echo
+      Gs
+      echo
+      echo "Press enter to return to a shell."
+      echo "Press ^C if you really want to quit."
+      read line
+      exec zsh
+    fi
   fi
 }
 
