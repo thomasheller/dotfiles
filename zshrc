@@ -4,11 +4,13 @@
 # ==============================================================================
 
 export GOPATH=$HOME/go  # default as of Go 1.8
+export PLAN9=$HOME/plan9
 
 typeset -U path
 path+=/usr/local/go/bin
 path+=/usr/lib/go/bin
 path+=$GOPATH/bin
+path+=$PLAN9/bin
 path+=$HOME/bin
 path+=$HOME/.vim/bundle/vimpager
 
