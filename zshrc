@@ -37,6 +37,7 @@ function has() {
 function install_everything() {
   # Let's see what's available through package management.
   local -A cmds # commands and their packages
+  cmds+=(apt-file apt-file)
   cmds+=(bzip2 bzip2) # includes bunzip2
   cmds+=(ctags exuberant-ctags)
   cmds+=(curl curl)
@@ -236,6 +237,7 @@ alias .z="$EDITOR $DOTFILES/zshrc"
 alias .ze="$EDITOR $DOTFILES/zshenv"
 alias ai='sudo apt-get install'
 alias ac='apt-cache search'
+alias af='apt-file search'
 alias al='dpkg-query -L'
 alias au='sudo apt-get update'
 alias calc='bc -lq' # use scale=n to set precision manually
