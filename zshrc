@@ -4,7 +4,7 @@
 # ==============================================================================
 
 export GOPATH=$HOME/go  # default as of Go 1.8
-export PLAN9=$HOME/plan9
+export PLAN9=$HOME/plan9port
 
 typeset -U path
 path+=/usr/local/go/bin
