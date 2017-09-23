@@ -10,6 +10,7 @@
 alias c=cat
 alias h=head
 alias t=tail
+alias tf='tail -f'
 
 # directory management:
 alias md=mkdir
