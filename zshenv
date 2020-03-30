@@ -1,35 +1,60 @@
-# ==============================================================================
-# ~/.zshenv -- configuration file for Zsh (<http://zsh.org>) by Thomas Heller
-# Latest version: <https://github.com/thomasheller/dotfiles/>
-# ==============================================================================
+# ~/.zshenv (also read by Vim)
 
-# Define aliases that are safe for non-interactive shells, for example
-# when executing commands from Vim.
+# ENVIRONMENT {{{
 
-# shell essentials:
-alias c=cat
-alias h=head
-alias t=tail
-alias tf='tail -f'
+# Set Golang development path
+# This is the default as of Go 1.8 but we need this variable in some other places.
+export GOPATH=$HOME/go
 
-# directory management:
-alias md=mkdir
-alias mdp='mkdir -p'
-alias rd=rmdir
-function mcd() { mkdir -p $@ && cd $1 } # create dir(s) and cd (to the first)
+# Set PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$GOPATH/bin:$HOME/.cargo/bin
 
-# make cp, mv and rm interactive by default:
+# Default applications
+export BROWSER=chromium-browser
+export EDITOR=vim
+export IMAGEVIEWER=sxiv
+export OFFICE=libreoffice
+export READER=zathura
+
+# Application specific configuration paths
+# export ZDOTDIR=$HOME/.config/zsh
+# export ZDOTDIR=$HOME
+
+export ANDROID_HOME=$HOME/Android/Sdk
+
+# }}}
+
+# ALIASES and FUNCTIONS (alphabetically) {{{
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# permission management:
-alias 700='chmod -R 0700'
-alias 600='chmod -R 0600'
-alias 755='chmod -R 0755'
-alias 644='chmod -R 0644'
+alias -- +x='chmod +x'
+alias -- -x='chmod -x'
 
-# Git:
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
+
+# see also symlinks.sh
+alias .a="$EDITOR $HOME/.config/alacritty/alacritty.yml"
+alias .b="$EDITOR $HOME/.config/bspwm/bspwmrc"
+alias .p="$EDITOR $HOME/.config/polybar/config"
+alias .s="$EDITOR $HOME/.screenrc"
+alias .sx="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
+alias .t="$EDITOR $HOME/.tmux.conf"
+alias .v="$EDITOR $HOME/.vim/vimrc"
+alias .xi="$EDITOR $HOME/.xinitrc"
+alias .xm="$EDITOR $HOME/.Xmodmap"
+alias .z="$EDITOR $HOME/.zshrc"
+alias .ze="$EDITOR $HOME/.zshenv"
+
+alias 600='chmod -R 0600'
+alias 644='chmod -R 0644'
+alias 700='chmod -R 0700'
+alias 755='chmod -R 0755'
+
 alias Ga='git add'
 alias Gau='git add -u'
 alias Gb='git branch'
@@ -54,103 +79,113 @@ alias Grm='git rm'
 alias Gs='git status'
 alias Gsh='git show'
 alias Gshowremote='git remote -v'
+alias Gstashapply0='git stash apply stash@{0}'
 alias Gt='git tag'
+alias Gup='git checkout master && git fetch upstream && git rebase upstream/master && git push origin master'
+alias Gw='git ls-files -m -o | grep -v '\.sw.$'' # display files currently being worked on
 function Gours() { git checkout --ours $@ && git add $@ }
 function Gtheirs() { git checkout --theirs $@ && git add $@ }
 
-# grep:
-alias g='grep --color=auto'
+alias c=cat
+
+alias f='for i in'
+alias fn='noglob find -iname'
+
+alias grep='grep --color=auto'
+alias g=grep
 alias gi='g -i'
 alias gl='g -l'
 alias gil='g -il'
 alias gv='g -v'
 alias gw='g -w'
+alias gr='g -r'
+alias grl='g -rl'
+alias gri='g -ri'
+alias gril='g -ril'
 
 # Go-related aliases:
 alias gb='go build'
+alias gd='go doc'
 alias gco='go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
 alias gg='go get'
 alias golint='gometalinter --enable-all'
 alias gt='go test'
+alias gv='go vet'
+
+alias h=head
+
+function has() {
+	for cmd in $@; do
+	if ! command -v "$cmd" >/dev/null; then
+		return 1
+	fi
+	done
+	return 0
+}
 
 # ls:
+if [[ -x /usr/bin/dircolors && -f $HOME/.dircolors ]]; then
+	eval $(/usr/bin/dircolors $HOME/.dircolors)
+	alias ls='ls --color=auto'
+fi
 alias l=ls
+alias l1='ls -1'
 alias la='ls -a'
-alias ll='ls -l'
 alias lart='ls -lart'
-alias big='ls -lSrh'
+alias ll='ls -l'
+alias lsd='ls -d'
 
-# zmv:
-autoload -U zmv
+alias md=mkdir
+function mcd() { mkdir -p $@ && cd $1 } # create dir(s) and cd (to the first)
+
+alias m=mplayer
+alias mpl=mplayer
+
+alias p='print -l'
+
+alias rd=rmdir
+
+alias src="source $HOME/.zshenv && source $HOME/.zshrc"
+alias stop='sudo shutdown -h now'
+alias sx='exec startx -- -nolisten tcp'
+
+alias t=tail
+alias t0f='tail -n 0 -f'
+alias tf='tail -f'
+
+alias v=vim
+alias vd=vimdiff
+alias vo='vim -o'
+alias vO='vim -O'
+
+alias wl='wc -l'
+
 alias zmv='noglob zmv'
 
-# globbing preferences:
-alias mgo='noglob multigoogle'
+# }}}
 
-# global aliases:
-alias -g 2nul='2>/dev/null'
+# NAMED DIRECTORIES {{{
 
-# gnuplot, graphviz:
-#
-# plot function(s) given on the command line, e.g.:
-#   $ plot 'sin(x),cos(x+.5*pi),abs(x)'
-function plot() {
-  gnuplot -persist <<EOF
-    set style line 1 lc rgb '#0066aa' lt 1 lw 1 pt 7 ps 1
-    plot $1 ls 1 
-EOF
-}
+hash -d D=$HOME/Documents
+hash -d G=$GOPATH/src
+hash -d K=$GOPATH/src/github.com/thomasheller/kari-private
+hash -d N=$HOME/Nextcloud
+hash -d P=$HOME/Projects
+hash -d T=$GOPATH/src/github.com/thomasheller
+hash -d TH=$HOME/thme/thomasheller.github.io
+hash -d W=$HOME/Downloads
+hash -d WD=$GOPATH/src/local/webdesk
 
-# plot a directed graph given on the command line, e.g.:
-#   $ plotdg 'a->b a->c'
-function plotdg() {
-  local tmp=$(mktemp /tmp/graphviz.XXXXXXXXXX)
-  dot -Tpng -o $tmp <<EOF && echo $tmp && display $tmp
-    digraph { $@ }
-EOF
-}
-#
-# plot a directed graph from a file, e.g.:
-#   $ cat >/tmp/digraph.dat
-#   a->b
-#   a->c
-#   ^D
-#   $ plotdgf /tmp/digraph.dat
-function plotdgf() {
-  local tmp=$(mktemp /tmp/graphviz.XXXXXXXXXX)
-  echo "digraph { $(cat $1) }" | dot -Tpng -o $tmp && echo $tmp && display $tmp
-}
+# }}}
 
-# plot values from a file as a line graph with points, e.g.:
-#   $ cat >/tmp/graph.dat
-#   1 2.25
-#   2 1
-#   3 4
-#   ^D
-#   $ plotlpf /tmp/graph.dat
-function plotlpf() {
-  gnuplot -persist <<EOF
-    set style line 1 lc rgb '#0066aa' lt 1 lw 1 pt 7 ps 1
-    plot "$1" with linespoints ls 1
-EOF
-}
+# TODO
 
-# plot CSV file data as a line graph with points, e.g.:
-#   $ cat >/tmp/graph.csv
-#   1,2.25
-#   2,1
-#   3,4
-#   ^D
-#   $ plotlpcsv /tmp/graph.csv
-function plotlpcsv() {
-  gnuplot -persist <<EOF
-    set style line 1 lc rgb '#0066aa' lt 1 lw 1 pt 7 ps 1
-    set datafile separator ","
-    plot "$1" with linespoints ls 1
-EOF
-}
+stty stop undef
+stty start undef
 
-# Docker containers:
-alias DO='docker run -it --rm ubuntu /bin/bash -c "cd && exec bash"'
-alias DOz='docker run -it --rm ubuntu /bin/bash -c "apt-get -qq update && apt-get install -qq git sudo zsh >/dev/null && cd && exec zsh"'
-alias DOth='docker run -it --rm ubuntu /bin/bash -c "apt-get -qq update && apt-get install -qq git sudo zsh >/dev/null && cd && git clone https://github.com/thomasheller/dotfiles && zsh dotfiles/zshall && exec zsh"'
+set nosharehistory
+
+setopt extendedglob
+setopt nohup
+setopt completealiases
+

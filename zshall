@@ -1,8 +1,0 @@
-# Source all config files normally sourced when an interactive zsh is
-# started.
-#
-# This is intended to be run as `source dotfiles/zshall` when
-# installing the dotfiles.
-#
-source $HOME/dotfiles/zshenv
-source $HOME/dotfiles/zshrc

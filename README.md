@@ -2,15 +2,13 @@
 
 Some personalized dotfiles.
 
-I attempt to restore my setup from ~10 years ago and add some
-improvements. While your mileage may vary, these files could inspire
-you how [zsh](http://zsh.sourceforge.net/),
-[vim](http://www.vim.org/), [tmux](https://tmux.github.io/) and
-various other tools can be adjusted to suit your needs.
+## Setup
 
-Note that using these dotfiles will install various other software on
-your machine and change several settings. Please read and understand
-the entire code before trying them.
+```bash
+git clone https://github.com/thomasheller/dotfiles
+cd dotfiles
+./symlinks.sh
+```
 
 ## Notes
 

@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# ~/.config/bspwm/bspwmrc
+#
+
+# set custom keybindings
+xmodmap ~/.Xmodmap
+
+# fix X11 root cursor
+xsetroot -cursor_name arrow
+
+# set timeout for screen lock
+xset s 100 1
+
+# use "xsecurelock" for locking
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
+
+# set wallpaper
+feh --bg-scale ~/.wallpaper.jpg
+
+# start status bar
+polybar th &
+
+# start the hotkey daemon
+sxhkd &
+
+# virtual desktops
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         3
+bspc config window_gap           10
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+# bspc rule -a shutter state=floating
+
+bspc config normal_border_color  "#ffffff"
+bspc config focused_border_color "#ff9900"
+

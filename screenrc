@@ -1,5 +1,8 @@
-shell zsh
-defutf8 on
-caption always '%w'
-startup_message off
+# ~/.screenrc
 bind v screen vim
+caption always '%w'
+# hardstatus alwayslastline
+# hardstatus string '%w'
+defutf8 on
+shell zsh
+startup_message off
