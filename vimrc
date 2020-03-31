@@ -72,6 +72,10 @@ set shell=zsh
 
 " COMMANDS {{{
 
+" reload configuration
+command! SRC source ~/.vim/vimrc
+
+" edit dotfiles
 command! A vsplit ~/.config/alacritty/alacritty.yml
 command! B vsplit ~/.config/bspwm/bspwmrc
 command! P vsplit ~/.config/polybar/config
@@ -84,14 +88,33 @@ command! XM vsplit ~/.Xmodmap
 command! Z vsplit ~/.zshrc
 command! ZE vsplit ~/.zshenv
 
-command! SRC source ~/.vim/vimrc
+" execute line under cursor in shell
+command! RUN .w !zsh
 
+" execute line under cursor in Vim
+command! EX execute getline('.')
+"
 " }}}
 
 " SYNTAX HIGHLIGHTING {{{
 
 colorscheme ron
 syntax on
+
+" }}}
+
+" COMMENTING {{{
+
+let b:commenter_prefix = '# '
+
+autocmd BufNewFile,BufRead *.c,*.cpp,*.go,*.php let b:commenter_prefix = '\/\/ '
+autocmd BufNewFile,BufRead vimrc,*.vim let b:commenter_prefix = '" '
+
+nnoremap <leader>c :s/^\(\s*\)/\1<c-r><c-r>=b:commenter_prefix<cr>/<cr>:nohlsearch<cr>
+vnoremap <leader>c :s/^\(\s*\)/\1<c-r><c-r>=b:commenter_prefix<cr>/<cr>:nohlsearch<cr>
+
+nnoremap <leader>C :s/^\(\s*\)<c-r><c-r>=b:commenter_prefix<cr>/\1/<cr>:nohlsearch<cr>
+vnoremap <leader>C :s/^\(\s*\)<c-r><c-r>=b:commenter_prefix<cr>/\1/<cr>:nohlsearch<cr>
 
 " }}}
 
