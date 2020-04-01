@@ -16,6 +16,9 @@ export IMAGEVIEWER=sxiv
 export OFFICE=libreoffice
 export READER=zathura
 
+# Application specific settings
+export LESS=-R
+
 # Application specific configuration paths
 # export ZDOTDIR=$HOME/.config/zsh
 # export ZDOTDIR=$HOME
@@ -91,8 +94,8 @@ alias c=cat
 alias f='for i in'
 alias fn='noglob find -iname'
 
-alias grep='grep --color=auto'
-alias g=grep
+# grep with color for piping to less -R
+alias g='grep --color=always'
 alias gi='g -i'
 alias gl='g -l'
 alias gil='g -il'
@@ -102,6 +105,19 @@ alias gr='g -r'
 alias grl='g -rl'
 alias gri='g -ri'
 alias gril='g -ril'
+
+# raw grep without color
+alias rg='grep --color=none'
+alias rgi='rg -i'
+alias rgl='rg -l'
+alias rgil='rg -il'
+alias rgv='rg -v'
+alias rgw='rg -w'
+alias rgr='rg -r'
+alias rgrl='rg -rl'
+alias rgri='rg -ri'
+alias rgril='rg -ril'
+
 
 # Go-related aliases:
 alias gb='go build'
