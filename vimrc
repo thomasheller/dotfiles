@@ -120,7 +120,8 @@ vnoremap <leader>C :s/^\(\s*\)<c-r><c-r>=b:commenter_prefix<cr>/\1/<cr>:nohlsear
 
 " TODO
 
-set foldmethod=syntax
+set foldmethod=indent
+set foldlevel=100
 
 autocmd BufNewFile,BufRead */.config/polybar/config,polybar set filetype=dosini
 
