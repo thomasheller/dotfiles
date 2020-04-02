@@ -85,6 +85,10 @@ super + bracket{left,right}
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
+# cycle through windows
+alt + {_, shift +} Tab
+	bspc node -f {next,prev}.local
+
 # focus the older or newer node in the focus history
 super + {o,i}
 	bspc wm -h off; \
@@ -130,3 +134,8 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# suspend machine
+super + Pause
+	systemctl suspend
+
