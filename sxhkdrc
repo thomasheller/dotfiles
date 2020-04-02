@@ -135,6 +135,10 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# take screenshot
+super + Print
+	shutter -f --delay=0 --include_cursor
+
 # suspend machine
 super + Pause
 	systemctl suspend
