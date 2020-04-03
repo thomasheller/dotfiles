@@ -18,6 +18,8 @@ links+=(.Xmodmap Xmodmap)
 links+=(.zshrc zshrc)
 links+=(.zshenv zshenv)
 links+=(.dircolors dircolors)
+links+=(bin/emoji_menu.sh emoji/emoji_menu.sh)
+links+=(.config/emoji/emoji.txt emoji/emoji.txt)
 
 for link in ${(@k)links}; do
 	real_src="$HOME/$link"

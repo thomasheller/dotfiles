@@ -139,6 +139,10 @@ super + {Left,Down,Up,Right}
 super + Print
 	shutter -f --delay=0 --include_cursor
 
+# emoji menu
+super + e
+	emoji_menu.sh
+
 # suspend machine
 super + Pause
 	systemctl suspend
