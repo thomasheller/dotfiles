@@ -99,7 +99,7 @@ function ls-or-accept-line {
     # BUFFER=l
     # BUFFER=ll
     # BUFFER='lart -h'
-    BUFFER='ls -1'
+    BUFFER=' ls -1'
   fi
   zle accept-line
 }
