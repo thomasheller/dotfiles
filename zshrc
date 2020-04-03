@@ -47,6 +47,7 @@ ${SSH_CONNECTION+%n@%m:}\
 setopt autocd
 setopt extendedglob
 setopt interactivecomments
+setopt histignorespace
 
 REPORTTIME=5
 
