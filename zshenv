@@ -58,6 +58,11 @@ alias 644='chmod -R 0644'
 alias 700='chmod -R 0700'
 alias 755='chmod -R 0755'
 
+alias c=cat
+
+alias f='for i in'
+alias fn='noglob find -iname'
+
 alias Ga='git add'
 alias Gau='git add -u'
 alias Gb='git branch'
@@ -89,11 +94,6 @@ alias Gup='git checkout master && git fetch upstream && git rebase upstream/mast
 alias Gw='git ls-files -m -o | grep -v '\.sw.$'' # display files currently being worked on
 function Gours() { git checkout --ours $@ && git add $@ }
 function Gtheirs() { git checkout --theirs $@ && git add $@ }
-
-alias c=cat
-
-alias f='for i in'
-alias fn='noglob find -iname'
 
 # grep with color for piping to less -R
 alias g='grep --color=always'
