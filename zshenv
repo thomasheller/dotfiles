@@ -60,7 +60,7 @@ alias 755='chmod -R 0755'
 
 alias c=cat
 
-alias Dup='cd ~T/dotfiles && git fetch && git rebase origin/master && src'
+alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master) && src'
 
 alias f='for i in'
 alias fn='noglob find -iname'
