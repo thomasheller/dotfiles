@@ -98,7 +98,7 @@ command! EX execute getline('.')
 
 " SYNTAX HIGHLIGHTING {{{
 
-colorscheme ron
+colorscheme zellner
 syntax on
 
 " }}}
