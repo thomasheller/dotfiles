@@ -1,4 +1,5 @@
 # ~/.screenrc
+bind p paste .
 bind v screen vim
 caption always '%w'
 # hardstatus alwayslastline
