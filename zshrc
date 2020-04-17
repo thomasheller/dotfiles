@@ -59,12 +59,12 @@ bindkey -v # Vi mode
 
 zle -N insert-glob-all-non-dirs
 zle -N insert-last-command-output-or-edit-git-workspace-magic
-zle -N ls-or-accept-line
+zle -N ls-gs-or-accept-line
 zle -N restore-last-parameters
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-bindkey '^M' ls-or-accept-line
+bindkey '^M' ls-gs-or-accept-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^Z' restore-last-parameters
 bindkey '^[[19~' insert-glob-all-non-dirs # F8
@@ -82,12 +82,12 @@ function insert-last-command-output-or-edit-git-workspace-magic {
 	fzf_cmd=($HOME/.fzf/bin/fzf --exit-0 --tac --cycle -m --filepath-word --select-1)
 
 	if [[ -n "$BUFFER" ]]; then
-		selection=$(eval $history[$((HISTCMD-1))] | $fzf_cmd | paste -s -d' ')
+		selection=$(eval $history[$((HISTCMD-1))] | strip-colors | $fzf_cmd | paste -s -d' ')
 		if [[ -n "$selection" ]]; then
 			LBUFFER+="$selection"
 		fi
 	else
-		selection="$(Gw | $fzf_cmd | paste -s -d' ')" || return
+		selection="$(Gw | strip-colors | $fzf_cmd | paste -s -d' ')" || return
 		if [[ -n "$selection" ]]; then
 			BUFFER="v $selection"
 			zle accept-line
@@ -95,12 +95,16 @@ function insert-last-command-output-or-edit-git-workspace-magic {
 	fi
 }
 
-function ls-or-accept-line {
+function ls-gs-or-accept-line {
   if [[ $#BUFFER -eq 0 ]]; then
-    # BUFFER=l
-    # BUFFER=ll
-    # BUFFER='lart -h'
-    BUFFER=' ls -1'
+    if [[ -d .git ]] || git rev-parse --is-inside-work-tree &>/dev/null; then
+      BUFFER=' Gs'
+    else
+      # BUFFER=l
+      # BUFFER=ll
+      # BUFFER='lart -h'
+      BUFFER=' ls -1'
+    fi
   fi
   zle accept-line
 }
