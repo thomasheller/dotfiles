@@ -168,7 +168,7 @@ alias p='print -l'
 alias rd=rmdir
 
 alias src="source $HOME/.zshenv && source $HOME/.zshrc"
-alias stop='sudo shutdown -h now'
+alias stop='sync && sudo shutdown -h now'
 alias strip-colors='perl -pe "s/\e\[?.*?[\@-~]//g"'
 alias sx='exec startx -- -nolisten tcp'
 
