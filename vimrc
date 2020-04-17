@@ -38,6 +38,27 @@ nnoremap <f4> :q<cr>
 " F5 = toggle paste mode
 set pastetoggle=<f5>
 
+" F10 = toggle netrw
+
+let g:NetrwToggled=0
+fu! ToggleNetrw()
+	if g:NetrwToggled
+		let i = bufnr("$")
+		while (i >= 1)
+			if (getbufvar(i, "&filetype") == "netrw")
+				silent exe "bwipeout " . i
+			endif
+			let i-=1
+		endwhile
+		let g:NetrwToggled=0
+	else
+		let g:NetrwToggled=1
+		Lexplore
+	endif
+endfu
+
+nnoremap <silent> <f10> :call ToggleNetrw()<cr>
+
 " }}}
 
 " OPTIONS {{{
