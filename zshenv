@@ -66,6 +66,7 @@ alias f='for i in'
 alias fn='noglob find -iname'
 
 alias Ga='git add'
+alias Gamend='git commit --amend'
 alias Gap='git add -p'
 alias Gau='git add -u'
 alias Gb='git branch'
