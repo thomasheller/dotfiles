@@ -191,6 +191,7 @@ alias zmv='noglob zmv'
 # NAMED DIRECTORIES {{{
 
 hash -d D=$HOME/Documents
+hash -d DF=$GOPATH/src/github.com/thomasheller/dotfiles
 hash -d G=$GOPATH/src
 hash -d K=$GOPATH/src/github.com/thomasheller/kari-private
 hash -d N=$HOME/Nextcloud
