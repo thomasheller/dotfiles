@@ -9,7 +9,7 @@ inoremap jj <esc>
 vnoremap Q gq
 
 " cancel search on ctrl+/
-nnoremap  :nohlsearch<cr>
+nnoremap <silent>  :nohlsearch<cr>
 
 " whitespace
 nnoremap <tab> i<tab><esc>
