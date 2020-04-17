@@ -143,6 +143,10 @@ super + Print
 super + e
 	emoji_menu.sh
 
+# KeePass2
+super + shift + p
+	keepass2
+
 # suspend machine
 super + Pause
 	systemctl suspend
