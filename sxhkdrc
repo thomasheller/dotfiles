@@ -137,7 +137,7 @@ super + {Left,Down,Up,Right}
 
 # take screenshot
 super + Print
-	shutter -f --delay=0 --include_cursor
+	shutter --select --delay=2 --include_cursor
 
 # emoji menu
 super + e
