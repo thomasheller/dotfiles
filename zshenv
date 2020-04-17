@@ -93,6 +93,7 @@ alias Gsh='git show'
 alias Gshowremote='git remote -v'
 alias Gstashapply0='git stash apply stash@{0}'
 alias Gt='git tag'
+alias Gundo='git reset --soft HEAD~1'
 alias Gup='git checkout master && git fetch upstream && git rebase upstream/master && git push origin master'
 alias Gw='git ls-files -m -o | grep -v '\.sw.$'' # display files currently being worked on
 function Gours() { git checkout --ours $@ && git add $@ }
