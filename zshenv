@@ -175,6 +175,7 @@ alias sx='exec startx -- -nolisten tcp'
 alias t=tail
 alias t0f='tail -n 0 -f'
 alias tf='tail -f'
+alias tree='tree -C'
 
 alias v=vim
 alias vd=vimdiff
