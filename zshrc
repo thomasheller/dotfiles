@@ -62,7 +62,7 @@ zle -N insert-last-command-output-or-edit-git-workspace-magic
 zle -N ls-gs-or-accept-line
 zle -N restore-last-parameters
 
-bindkey '^A' beginning-of-line
+bindkey '^A' beginning-of-line # TODO: conflicts with GNU Screen/tmux
 bindkey '^E' end-of-line
 bindkey '^M' ls-gs-or-accept-line
 bindkey '^R' history-incremental-search-backward
