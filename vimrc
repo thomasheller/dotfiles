@@ -19,6 +19,10 @@ nnoremap <cr> O<esc>
 " use Zsh-like mapping for command line
 cnoremap <c-a> <home>
 
+" unmap dangerous commands
+nnoremap ZZ <nop>
+nnoremap ZQ <nop>
+
 " }}}
 
 " FUNCION KEYS {{{
