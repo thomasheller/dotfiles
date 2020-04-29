@@ -38,7 +38,7 @@ ${SSH_CONNECTION+%n@%m:}\
 %~\
  %f%k\
 %F{black}%K{yellow}${${${vcs_info_msg_0_/\*\*/*}/\*/'$'\U0001f6a7''}/.../ '$'\u2754''}%k%f\
-%(!.%F{yellow} %n '$'\u26a1''%f.%K{black}%F{white}'$'\u2b9e''%k%f)  '
+%(!.%F{yellow} %n '$'\u26a1''%f.%K{black}%F{white}'$'\u27a4''%k%f)  '
 
 # }}}
 
