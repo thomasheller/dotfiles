@@ -1,6 +1,7 @@
 #
 # ~/.config/sxhkd/sxhkdrc
 #
+# Reload: Super+Escape
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -75,8 +76,9 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local
+# (we use tab instead)
+# super + {_,shift + }c
+# 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -135,6 +137,10 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# calendar
+super + c
+	alacritty -e /home/thomas/go/src/github.com/thomasheller/dotfiles/mycal
 
 # take screenshot
 super + Print
