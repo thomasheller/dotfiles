@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# cal wrapper
+
+while :
+do
+	clear
+	cal
+	read x
+	clear
+	cal -y
+	read x
+done
+
+
