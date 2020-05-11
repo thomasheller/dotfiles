@@ -58,6 +58,8 @@ alias 644='chmod -R 0644'
 alias 700='chmod -R 0700'
 alias 755='chmod -R 0755'
 
+alias alpine='docker run -it --rm alpine ash'
+
 alias c=cat
 
 alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master) && src'
