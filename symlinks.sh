@@ -26,6 +26,13 @@ for link in ${(@k)links}; do
 	target=$links[$link]
 	desired_target="$PWD/$target"
 
+	if [[ ! -e "$desired_target" ]]; then
+		echo $'\u2753'" target does not exist: $desired_target"
+		file "$desired_target"
+		echo
+		continue
+	fi
+
 	if [[ ! -e ${real_src:h} ]]; then
 		if mkdir -p ${real_src:h}; then
 			echo $'\u2705 \u2699'" FIXED DIR $real_src -> $desired_target"
