@@ -132,7 +132,7 @@ syntax on
 
 let b:commenter_prefix = '# '
 
-autocmd BufNewFile,BufRead *.c,*.cpp,*.go,*.php let b:commenter_prefix = '\/\/ '
+autocmd BufNewFile,BufRead *.c,*.cpp,*.h,*.go,*.php let b:commenter_prefix = '\/\/ '
 autocmd BufNewFile,BufRead vimrc,*.vim let b:commenter_prefix = '" '
 
 nnoremap <leader>c :s/^\(\s*\)/\1<c-r><c-r>=b:commenter_prefix<cr>/<cr>:nohlsearch<cr>:call histdel('/', -1)<cr>
