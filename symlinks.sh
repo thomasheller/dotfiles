@@ -20,6 +20,9 @@ links+=(.zshenv zshenv)
 links+=(.dircolors dircolors)
 links+=(bin/emoji_menu.sh emoji/emoji_menu.sh)
 links+=(.config/emoji/emoji.txt emoji/emoji.txt)
+links+=(bin/screenshot.sh screenshot.sh)
+links+=(bin/dwmbar.sh dwmbar/dwmbar.sh)
+links+=(bin/dwmbar_loop.sh dwmbar/dwmbar_loop.sh)
 
 for link in ${(@k)links}; do
 	real_src="$HOME/$link"
