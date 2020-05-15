@@ -133,5 +133,15 @@ if [[ $TERM == dumb ]]; then
 	unset zle_bracketed_paste
 fi
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Syntax highlighting for Arch and Ubuntu (must be the last entry)
+
+for i in \
+	/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+	/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+do
+	if [[ -r $i ]]; then
+		source $i
+		break
+	fi
+done
 
