@@ -160,7 +160,7 @@ alias ll='ls -l'
 alias lsd='ls -d'
 
 alias md=mkdir
-function mcd() { mkdir -p $@ && cd $1 } # create dir(s) and cd (to the first)
+function mcd() { mkdir -pv $@ && cd $1 } # create dir(s) and cd (to the first)
 
 alias m=mplayer
 alias mpl=mplayer
