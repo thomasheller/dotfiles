@@ -18,7 +18,7 @@ case $volume in
 		;;
 esac
 
-bar="${bar} $volume"
+bar="${bar} $volume%"
 
 # wifi
 
