@@ -133,3 +133,5 @@ if [[ $TERM == dumb ]]; then
 	unset zle_bracketed_paste
 fi
 
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
