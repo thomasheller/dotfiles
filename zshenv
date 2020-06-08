@@ -64,7 +64,7 @@ alias bc='bc -ql'
 
 alias c=cat
 
-alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master) && src'
+alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master && ./symlinks.sh) && src'
 
 alias f='for i in'
 alias fn='noglob find -iname'
