@@ -178,3 +178,5 @@ set number
 
 set showcmd
 
+set linebreak
+
