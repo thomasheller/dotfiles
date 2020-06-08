@@ -183,6 +183,8 @@ alias t0f='tail -n 0 -f'
 alias tf='tail -f'
 alias tree='tree -C'
 
+alias utf8test='curl -s https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt'
+
 alias v=vim
 alias vd=vimdiff
 alias vo='vim -o'
