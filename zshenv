@@ -176,7 +176,7 @@ alias rd=rmdir
 alias src="source $HOME/.zshenv && source $HOME/.zshrc"
 alias stop='sync && sudo shutdown -h now'
 alias strip-colors='perl -pe "s/\e\[?.*?[\@-~]//g"'
-alias sx='exec startx -- -nolisten tcp'
+alias sx='cd && exec startx -- -nolisten tcp'
 
 alias t=tail
 alias t0f='tail -n 0 -f'
