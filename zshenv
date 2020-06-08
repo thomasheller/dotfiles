@@ -201,6 +201,7 @@ alias zmv='noglob zmv'
 hash -d D=$HOME/Documents
 hash -d DF=$GOPATH/src/github.com/thomasheller/dotfiles
 hash -d G=$GOPATH/src
+hash -d GH=$GOPATH/src/github.com
 hash -d K=$GOPATH/src/github.com/thomasheller/kari-private
 hash -d N=$HOME/Nextcloud
 hash -d P=$HOME/Projects
