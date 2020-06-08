@@ -69,6 +69,7 @@ alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master && ./symlink
 alias f='for i in'
 alias fn='noglob find -iname'
 
+alias G=git
 alias Ga='git add'
 alias Gamend='git commit --amend'
 alias Gap='git add -p'
