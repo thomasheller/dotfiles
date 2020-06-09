@@ -3,7 +3,7 @@
 # SUFFIX ALIASES {{{
 
 alias -s pdf=$READER
-for i in gif jpg jpeg; alias -s $i=$IMAGEVIEWER
+for i in gif jpg jpeg png; alias -s $i=$IMAGEVIEWER
 for i in odt doc docx ods xls xlsx; alias -s $i=$OFFICE
 
 # }}}
