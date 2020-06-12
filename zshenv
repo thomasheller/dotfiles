@@ -76,7 +76,13 @@ alias Gap='git add -p'
 alias Gau='git add -u'
 alias Gb='git branch'
 alias Gc='git clone'
-function Gcd() { git clone "$1" && cd "$(basename "$1" .git)" }
+function Gcd() {
+	case $# in
+		1) git clone "$1" && cd "$(basename "$1" .git)" ;;
+		2) git clone "$1" "$2" && cd "$2" ;;
+		*) echo "usage: $0 <repository> [<directory>]" ;;
+	esac
+}
 alias Gcim='git commit -m'
 alias Gciv='git commit -v'
 alias Gcl='git clean -d --interactive'
