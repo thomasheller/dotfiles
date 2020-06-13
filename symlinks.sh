@@ -24,6 +24,7 @@ links+=(bin/run_alternatives.sh run_alternatives.sh)
 links+=(bin/screenshot.sh screenshot.sh)
 links+=(bin/dwmbar.sh dwmbar/dwmbar.sh)
 links+=(bin/dwmbar_loop.sh dwmbar/dwmbar_loop.sh)
+links+=(bin/cheatsheet cheatsheet/cheatsheet.sh)
 
 for link in ${(@k)links}; do
 	real_src="$HOME/$link"
