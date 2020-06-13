@@ -4,19 +4,22 @@
 
 volume=$(amixer sget Master | awk -F'[][]' '/Mono:/{ print $2 }' | tr -d %)
 
-case $volume in
-	100)
-		;&
-	[7-9]*)
-		bar="${bar} 🔊"
-		;;
-	[4-6]*)
-		bar="${bar} 🔉"
-		;;
-	[0-3]*)
-		bar="${bar} 🔈"
-		;;
-esac
+if amixer sget Master | grep -cF '[off]' >/dev/null
+then
+	bar="${bar} 🔇"
+else
+	case $volume in
+		100|[7-9]*)
+			bar="${bar} 🔊"
+			;;
+		[4-6]*)
+			bar="${bar} 🔉"
+			;;
+		[0-3]*)
+			bar="${bar} 🔈"
+			;;
+	esac
+fi
 
 bar="${bar} $volume%"
 
