@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # volume
 
@@ -48,7 +48,7 @@ bar="${bar} $capacity%"
 cpu=$(grep 'cpu ' /proc/stat | awk '{printf "%.f", ($2+$4)*100/($2+$4+$5)}')
 temp=$(cat /sys/devices/virtual/thermal/thermal_zone0/temp | awk '{ print $1/1000 }')
 
-if [[ $temp -gt 60 ]]
+if [ $temp -gt 60 ]
 then
 	tempwarn=" ⚠"
 fi

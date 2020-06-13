@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Download emoji list version 13.0 from Unicode
 # and convert it into format suitable for dmenu.
 set -e
