@@ -132,7 +132,7 @@ syntax on
 
 let b:commenter_prefix = '# '
 
-autocmd BufNewFile,BufRead *.c,*.cpp,*.h,*.go,*.php let b:commenter_prefix = '\/\/ '
+autocmd BufNewFile,BufRead *.c,*.cpp,*.h,*.go,*.php,*.js,*.ts let b:commenter_prefix = '\/\/ '
 autocmd BufNewFile,BufRead *.tex let b:commenter_prefix = '% '
 autocmd BufNewFile,BufRead vimrc,*.vim let b:commenter_prefix = '" '
 
