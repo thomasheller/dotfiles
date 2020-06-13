@@ -163,6 +163,8 @@ autocmd BufNewFile,BufRead *.sh,.zshenv,.zshrc set filetype=sh
 
 let g:go_fmt_command = "goimports"
 
+execute pathogen#infect()
+
 filetype plugin indent on
 
 set wildmenu
@@ -180,4 +182,6 @@ set number
 set showcmd
 
 set linebreak
+
+
 
