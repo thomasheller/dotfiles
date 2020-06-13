@@ -14,12 +14,24 @@ set -e
 echo '~~~ Installing pacman packages... ~~~'
 
 sudo pacman -S --needed \
+	man-db man-pages texinfo \
+	vim \
+	zsh \
+	zsh-syntax-highlighting \
+	xorg-server xorg-xinit \
+	noto-fonts noto-fonts-emoji \
+	alacritty \
 	git \
 	base-devel \
 	xorg-xsetroot \
-	feh \
-	fzf \
-	entr
+	xdotool \
+#	feh \
+#	fzf \
+#	entr \
+#	unclutter \
+	alsa-utils \
+	wireless_tools \
+	chromium
 
 if ! command -v yay >/dev/null 2>&1 ; then
 	echo '~~~ yay not found, installing... ~~~'
@@ -31,6 +43,7 @@ fi
 
 echo '~~~ Installing AUR packages... ~~~'
 
-yay -S polybar
-yay -S gimme
+# yay -S polybar
+# yay -S gimme
+yay -S libxft-bgra
 
