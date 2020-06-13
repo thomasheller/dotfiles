@@ -138,13 +138,13 @@ alias rgril='rg -ril'
 
 
 # Go-related aliases:
-alias gb='go build'
-alias gd='go doc'
-alias gco='go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
-alias gg='go get'
+alias gb='eval $(gimme stable) && go build'
+alias gd='eval $(gimme stable) && go doc'
+alias gco='eval $(gimme stable) && go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
+alias gg='eval $(gimme stable) && go get'
 alias golint='gometalinter --enable-all'
-alias gt='go test'
-alias gv='go vet'
+alias gt='eval $(gimme stable) && go test'
+alias gv='eval $(gimme stable) && go vet'
 
 alias h=head
 
