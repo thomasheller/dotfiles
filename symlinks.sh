@@ -25,6 +25,7 @@ links+=(bin/screenshot.sh screenshot.sh)
 links+=(bin/dwmbar.sh dwmbar/dwmbar.sh)
 links+=(bin/dwmbar_loop.sh dwmbar/dwmbar_loop.sh)
 links+=(bin/cheatsheet cheatsheet/cheatsheet.sh)
+links+=(.config/sxiv/exec/key-handler sxiv-key-handler.sh)
 
 for link in ${(@k)links}; do
 	real_src="$HOME/$link"
