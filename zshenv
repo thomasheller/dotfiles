@@ -63,6 +63,7 @@ alias alpine='docker run -it --rm alpine ash'
 alias bc='bc -ql'
 
 alias c=cat
+alias colors='msgcat --color=test'
 
 alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master && ./symlinks.sh) && src'
 
