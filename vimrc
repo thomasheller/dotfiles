@@ -42,6 +42,9 @@ nnoremap <f4> :q<cr>
 " F5 = toggle paste mode
 set pastetoggle=<f5>
 
+imap <f8> <esc><f8>
+nnoremap <f8> :bd<cr>
+
 " F10 = toggle netrw
 
 let g:NetrwToggled=0
@@ -183,5 +186,8 @@ set showcmd
 
 set linebreak
 
-
+nnoremap <leader>e mxF<lyiw`xa</><esc>PF<
+imap <leader>e <esc><leader>ei
+nnoremap <leader>E mxF<lyiw`xo</><esc>P`x
+imap <leader>E <esc><leader>Eo
 
