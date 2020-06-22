@@ -2,6 +2,10 @@
 
 time.Format(): Mon Jan 2 15:04:05 MST 2006
 
+== Zsh ==
+
+zmv '(*).foo' '$1.bar'
+
 == Unit Prefixes ==
 
 yotta	Y	10^24	1000000000000000000000000
