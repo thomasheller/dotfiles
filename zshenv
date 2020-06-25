@@ -140,6 +140,7 @@ alias rgril='rg -ril'
 
 # Go-related aliases:
 alias gb='eval $(gimme stable) && go build'
+alias gbpi='eval $(gimme stable) && GOOS=linux GOARCH=arm GOARM=7 go build'
 alias gd='eval $(gimme stable) && go doc'
 alias gco='eval $(gimme stable) && go test -coverprofile=coverage.out && go tool cover -html=coverage.out'
 alias gg='eval $(gimme stable) && go get'
