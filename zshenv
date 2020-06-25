@@ -230,7 +230,7 @@ set nosharehistory
 
 setopt extendedglob
 setopt nohup
-setopt completealiases
+setopt nocompletealiases
 
 if [[ -f $HOME/.zshenv.local ]]; then
 	source $HOME/.zshenv.local
