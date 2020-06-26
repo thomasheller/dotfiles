@@ -10,6 +10,7 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 xmodmap $HOME/.Xmodmap
 # feh --bg-scale ~/.wallpaper.jpg &
 redshift -O 3250
+pamixer -m
 
 # dwmbar_loop.sh &
 $HOME/go/src/github.com/thomasheller/godwmbar/godwmbar &
