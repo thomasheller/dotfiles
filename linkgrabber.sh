@@ -1,3 +1,5 @@
 #!/bin/sh
-url=$(grep -Eo 'https?://[^[:space:]"'\'']+' | tac | dmenu -p 'Open:')
+urls=$(grep -Eo 'https?://[^[:space:]"'\'']+' | tac)
+[ -z "$urls" ] && exit
+url=$(echo "$urls" | dmenu -p 'Open:')
 [ -n "$url" ] && $BROWSER "$url"
