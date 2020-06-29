@@ -122,6 +122,7 @@ function restore-last-parameters {
 
 autoload -U zmv
 autoload -U compinit
+compdef mcd=cd
 
 if has vimpager; then
 	export PAGER=vimpager
