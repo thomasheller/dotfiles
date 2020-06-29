@@ -202,7 +202,7 @@ alias vO='vim -O'
 
 alias wl='wc -l'
 
-alias zmv='noglob zmv'
+alias zmv='noglob zmv -W -o -iv --'
 
 # }}}
 
