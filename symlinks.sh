@@ -27,6 +27,7 @@ links+=(bin/dwmbar_loop.sh dwmbar/dwmbar_loop.sh)
 links+=(bin/cheatsheet cheatsheet/cheatsheet.sh)
 links+=(.config/sxiv/exec/key-handler sxiv-key-handler.sh)
 links+=(bin/google_search.py google_search.py)
+links+=(bin/linkgrabber.sh linkgrabber.sh)
 
 for link in ${(@k)links}; do
 	real_src="$HOME/$link"
