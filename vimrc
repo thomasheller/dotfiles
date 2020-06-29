@@ -191,3 +191,7 @@ imap <leader>e <esc><leader>ei
 nnoremap <leader>E mxF<lyiw`xo</><esc>P`x
 imap <leader>E <esc><leader>Eo
 
+if stridx(system('hostname'), 'TH')
+	set expandtab
+endif
+
