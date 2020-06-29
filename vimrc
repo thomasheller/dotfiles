@@ -193,5 +193,6 @@ imap <leader>E <esc><leader>Eo
 
 if stridx(system('hostname'), 'TH')
 	set expandtab
+        set shiftwidth=4
 endif
 
