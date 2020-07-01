@@ -183,7 +183,7 @@ alias p='print -l'
 
 alias rd=rmdir
 
-alias src="source $HOME/.zshenv && source $HOME/.zshrc"
+alias src="source $HOME/.zshenv && source $HOME/.zshrc && xmodmap ~/.Xmodmap"
 alias stop='sync && sudo shutdown -h now'
 alias strip-colors='perl -pe "s/\e\[?.*?[\@-~]//g"'
 alias sx='cd && exec startx -- -nolisten tcp'
