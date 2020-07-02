@@ -124,6 +124,10 @@ autoload -U zmv
 autoload -U compinit
 compdef mcd=cd
 
+zmodload zsh/complist
+zstyle ':completion:*' menu yes select
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
 if has vimpager; then
 	export PAGER=vimpager
 else
