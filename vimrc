@@ -173,8 +173,8 @@ filetype plugin indent on
 set wildmenu
 set wildmode=longest,list:full
 
-set number
-" set number relativenumber
+" set number
+set number relativenumber
 
 " augroup numbertoggle
   " autocmd!
