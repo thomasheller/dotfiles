@@ -150,6 +150,7 @@ alias gd='eval $(gimme stable) && go doc'
 alias gco='eval $(gimme stable) && go test ./... -coverprofile=coverage.out && go tool cover -html=coverage.out'
 alias gg='eval $(gimme stable) && go get'
 alias golint='gometalinter --enable-all'
+alias gst='eval $(gimme stable)'
 alias gt='eval $(gimme stable) && go test'
 alias gv='eval $(gimme stable) && go vet'
 
