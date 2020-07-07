@@ -196,3 +196,6 @@ if stridx(system('hostname'), 'TH') >= 0
         set shiftwidth=4
 endif
 
+nmap n /<CR>
+nmap N ?<CR>
+
