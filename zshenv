@@ -165,6 +165,8 @@ function has() {
 	return 0
 }
 
+alias L=$PAGER
+
 # ls:
 if [[ -x /usr/bin/dircolors && -f $HOME/.dircolors ]]; then
 	eval $(/usr/bin/dircolors $HOME/.dircolors)
