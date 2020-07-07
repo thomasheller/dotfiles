@@ -121,7 +121,7 @@ function restore-last-parameters {
 # TODO
 
 autoload -U zmv
-autoload -U compinit
+autoload -U compinit && compinit
 compdef mcd=cd
 
 zmodload zsh/complist
