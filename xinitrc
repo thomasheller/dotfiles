@@ -13,8 +13,11 @@ xsetroot -solid black
 redshift -O 3250
 pamixer -m
 
-# dwmbar_loop.sh &
-$HOME/go/src/github.com/thomasheller/godwmbar/godwmbar &
+if [ -x $HOME/go/src/github.com/thomasheller/godwmbar/godwmbar ]; then
+	$HOME/go/src/github.com/thomasheller/godwmbar/godwmbar &
+else
+	dwmbar_loop.sh &
+fi
 
 hostname | grep TH && xrandr --output eDP-1 --mode 1600x900
 exec $HOME/go/src/github.com/thomasheller/dwm/dwm
