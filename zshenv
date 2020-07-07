@@ -29,6 +29,8 @@ export ANDROID_HOME=$HOME/Android/Sdk
 
 # ALIASES and FUNCTIONS (alphabetically) {{{
 
+alias -- -='cd -'
+
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
