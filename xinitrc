@@ -19,6 +19,9 @@ else
 	dwmbar_loop.sh &
 fi
 
+st &
+$BROWSER &
+
 hostname | grep TH && xrandr --output eDP-1 --mode 1600x900
 exec $HOME/go/src/github.com/thomasheller/dwm/dwm
 
