@@ -85,7 +85,9 @@ set smartcase
 " auto-indent
 set autoindent
 set smartindent
-set noexpandtab
+" set noexpandtab
+set expandtab
+set shiftwidth=2
 
 " status bar
 set laststatus=2
