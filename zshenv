@@ -187,6 +187,8 @@ function mcd() { mkdir -pv $@ && cd $1 } # create dir(s) and cd (to the first)
 alias m=mplayer
 alias mpl=mplayer
 
+alias mgs='mgitstatus -w -e -d 1 --no-upstream -c $(ls -1t) | grep -v /'
+
 alias p='print -l'
 
 alias rd=rmdir
