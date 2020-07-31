@@ -1,3 +1,6 @@
+24 hours ^= 1440 minutes
+ 1 hour  ^= 3600 seconds
+
 == Go ==
 
 time.Format(): Mon Jan 2 15:04:05 MST 2006
