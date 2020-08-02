@@ -37,3 +37,33 @@ atto	a	10^-18	0.000000000000000001
 zepto	z	10^-21	0.000000000000000000001
 yocto	y	10^-24 	0.000000000000000000000001
 
+== Control hotkeys ==
+
+	Shell			vim		tmux/Screen	X11/GUI
+X*C-a	beginning-of-line			Screen
+X C-b				backwards	tmux
+X*C-c	SIGINT							clip copy
+X*C-d	EOF
+X*C-e	end-of-line
+X*C-f				forwards
+  C-g				:file				Chrome: continue search
+  C-h (Vim binding)
+#+C-i	tab			tab				Firefox: page info
+ +C-j (Vim binding)
+ +C-k (Vim binding)
+ +C-l (Vim binding)
+#+C-m	newline			newline		mark (tmux)	Firefox: mute
+X+C-n				auto complete
+X+C-o				older jump
+ +C-p				k (prev line)			often "print"
+ *C-q								often "quit"
+X*C-r	search backwards
+ *C-s	search fowards		(^W) split
+  C-t				older tag
+X+C-u	delete line
+X*C-v				visual block			clip paste
+X*C-w	delete word
+X*C-x				completion			clip cut
+  C-y|				scroll up
+X*C-z|	suspend job
+
