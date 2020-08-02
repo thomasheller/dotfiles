@@ -2,6 +2,13 @@
 
 Some personalized dotfiles.
 
+## Motivation
+
+> A woodsman was once asked, “What would you do if you had
+> just five minutes to chop down a tree?” He answered, “I
+> would spend the first two and a half minutes sharpening my
+> axe.”
+
 ## Setup
 
 ```bash
