@@ -167,6 +167,34 @@ function has() {
 	return 0
 }
 
+alias k=kubectl
+alias ka='k apply'
+alias kaf='ka -f'
+alias kd='k describe'
+alias kdc='kd cronjobs'
+alias kdd='kd deployments'
+alias kdi='kd ingresses'
+alias kdj='kd jobs'
+alias kdp='kd pods'
+alias kds='kd services'
+alias kdel='k delete'
+alias kdelc='kdel cronjobs'
+alias kdeld='kdel deployments'
+alias kdeli='kdel ingresses'
+alias kdelj='kdel jobs'
+alias kdelp='kdel pods'
+alias kdels='kdel services'
+alias kg='k get'
+alias kga='kg all'
+alias kgc='kg cronjobs'
+alias kgd='kg deployments'
+alias kgi='kg ingresses'
+alias kgj='kg jobs'
+alias kgp='kg pods'
+alias kdpa='kd pods --sort-bye=.metadata.creationTimestamp | tail +2 | tac'
+alias kgs='kg services'
+alias kDeleteERrorPods='kubectl delete pods $(kubectl get pods --field=selector status.phase=Error -o=NAME)'
+
 alias L=$PAGER
 
 # ls:
