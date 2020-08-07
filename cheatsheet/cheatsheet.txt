@@ -67,3 +67,10 @@ X*C-x				completion			clip cut
   C-y|				scroll up
 X*C-z|	suspend job
 
+== telegram-cli ==
+
+docker run --rm -it weibeld/ubuntu-telegram-cli
+contact_list
+msg <peer> <text>
+chat_with_peer <peer> ... [/quit | /exit]
+
