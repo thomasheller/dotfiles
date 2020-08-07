@@ -69,6 +69,8 @@ alias colors='msgcat --color=test'
 
 alias Dup='(cd ~T/dotfiles && git fetch && git rebase origin/master && ./symlinks.sh) && src'
 
+alias E=exit
+
 alias f='for i in'
 alias fn='noglob find -iname'
 
