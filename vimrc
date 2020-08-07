@@ -201,3 +201,14 @@ endif
 nmap n /<CR>
 nmap N ?<CR>
 
+nnoremap <leader>r Y:r!<c-r>"<bs><cr>
+nnoremap <leader>R Y:@"<cr>
+
+nnoremap <f1> :Make<cr><cr>
+imap <f1> <esc><f1>
+autocmd BufNewFile,BufRead *.go set makeprg=go\ build
+command -nargs=* Make make <args> | cwindow 10
+nnoremap <c-n> :cnext<cr>
+nnoremap <c-p> :cprevious<cr>
+
+
