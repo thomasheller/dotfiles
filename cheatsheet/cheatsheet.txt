@@ -1,19 +1,72 @@
-24 hours ^= 1440 minutes
- 1 hour  ^= 3600 seconds
+tmux
+----
+  C-g F1                              this cheatsheet (custom binding)
+  C-g ,                               rename window
+  C-g .                               move window
+  C-g :set sy                         toggle synchronize-panes
+  C-g ?                               list-keys
+  C-g :ca -S -100000;sa /tmp/foo.txt  capture pane
 
-== Go ==
+time
+----
+  24 hours ^= 1440 minutes
+   1 hour  ^= 3600 seconds
 
-time.Format(): Mon Jan 2 15:04:05 MST 2006
+Docker/Kubernetes
+-----------------
+  C-p C-q  detach from interactive shell
 
-== Zsh ==
+Go
+--
+  time.Parse(layout, value string)
+    Mon Jan 2 15:04:05 MST 2006
 
-zmv '(*).foo' '$1.bar'
+  ioutil.ReadFile(filename string) ([]byte, error)
+  ioutil.WriteFile(filename string, data []byte, perm os.FileMode) error
 
-== Dotfiles ==
+Zsh
+---
+  zmv '(*).foo' '$1.bar'
+
+Markdown
+--------
+  [I'm an inline-style link](https://www.google.com)
+  https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
+
+Dotfiles
+--------
 
 https://wiki.archlinux.org/index.php/XDG_Base_Directory#Support
 
-== Unit Prefixes ==
+telegram-cli
+------------
+
+  docker run --rm -it weibeld/ubuntu-telegram-cli
+
+  get_self
+  contact_list  required for auto-completion
+  dialog_list  *required for auto-completion*
+  user_info <peer>
+  history <peer>
+  msg <peer> <text>
+  chat_with_peer <peer> ... [/exit | /quit | ^D]
+  quit | ^D
+
+apt
+---
+  apt-cache search <foo>  search for something
+  dpkg -S <file>          search for packages providing <file>
+                          (only installed packages?)
+
+Databases
+---------
+                 Postgres             MySQL
+show databases   \l                   SHOW DATABASES;
+show tables      \dt                  SHOW TABLES;
+use database     \c <database>        USE <database>;
+
+Unit Prefixes
+-------------
 
 yotta	Y	10^24	1000000000000000000000000
 zetta	Z	10^21	1000000000000000000000
@@ -37,40 +90,35 @@ atto	a	10^-18	0.000000000000000001
 zepto	z	10^-21	0.000000000000000000001
 yocto	y	10^-24 	0.000000000000000000000001
 
-== Control hotkeys ==
+Control hotkeys
+---------------
 
-	Shell			vim		tmux/Screen	X11/GUI
-X*C-a	beginning-of-line			Screen
-X C-b				backwards	tmux
-X*C-c	SIGINT							clip copy
-X*C-d	EOF
-X*C-e	end-of-line
-X*C-f				forwards
-  C-g				:file				Chrome: continue search
+ 	Shell			vim		tmux/Screen	X11/GUI
+X*C-a 	beginning-of-line			Screen
+X C-b 				backwards	tmux
+X*C-c 	SIGINT							clip copy
+X*C-d 	EOF
+X*C-e 	end-of-line
+X*C-f 				forwards
+  C-g 				:file				Chrome: continue search
   C-h (Vim binding)
-#+C-i	tab			tab				Firefox: page info
+#+C-i 	tab			tab				Firefox: page info
  +C-j (Vim binding)
  +C-k (Vim binding)
  +C-l (Vim binding)
-#+C-m	newline			newline		mark (tmux)	Firefox: mute
-X+C-n				auto complete
-X+C-o				older jump
- +C-p				k (prev line)			often "print"
- *C-q								often "quit"
-X*C-r	search backwards
- *C-s	search fowards		(^W) split
-  C-t				older tag
-X+C-u	delete line
-X*C-v				visual block			clip paste
-X*C-w	delete word
-X*C-x				completion			clip cut
-  C-y|				scroll up
-X*C-z|	suspend job
+#+C-m 	newline			newline		mark (tmux)	Firefox: mute
+X+C-n 				auto complete
+X+C-o 				older jump
+ +C-p 				k (prev line)			often "print"
+ *C-q*								often "quit"
+X*C-r 	search backwards
+ *C-s*	search fowards		(^W) split
+  C-t 				older tag
+X+C-u 	delete line
+X*C-v*				visual block			clip paste
+X*C-w*	delete word
+X*C-x*				completion			clip cut
+  C-y| 				scroll up
+X*C-z| 	suspend job
 
-== telegram-cli ==
-
-docker run --rm -it weibeld/ubuntu-telegram-cli
-contact_list
-msg <peer> <text>
-chat_with_peer <peer> ... [/quit | /exit]
-
+.. vim:ft=rst
