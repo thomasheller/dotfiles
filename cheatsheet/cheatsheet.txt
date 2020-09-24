@@ -1,11 +1,14 @@
 tmux
 ----
   C-g F1                              this cheatsheet (custom binding)
+  C-g w                               choose window from tree
   C-g ,                               rename window
   C-g .                               move window
   C-g :set sy                         toggle synchronize-panes
   C-g ?                               list-keys
   C-g :ca -S -100000;sa /tmp/foo.txt  capture pane
+  C-g j -s 0 -t 1                     join panes from window 1 into window 0
+  C-g !                               break-panes
 
 time
 ----
@@ -30,8 +33,11 @@ Zsh
 
 Markdown
 --------
-  [I'm an inline-style link](https://www.google.com)
+  https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+  # heading 1
+  ## heading 2
   https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
+  [I'm an inline-style link](https://www.google.com)
 
 Dotfiles
 --------
@@ -64,6 +70,20 @@ Databases
 show databases   \l                   SHOW DATABASES;
 show tables      \dt                  SHOW TABLES;
 use database     \c <database>        USE <database>;
+
+Vim
+---
+
+:echo &variable Inspect variables
+
+zo		Open one fold under the cursor.
+zO		Open all folds under the cursor recursively.
+zc		Close one fold under the cursor.
+zC		Close all folds under the cursor recursively.
+zM		Close all folds: set 'foldlevel' to 0.
+zR		Open all folds.  This sets 'foldlevel' to highest fold level.
+zm		Fold more: Subtract |v:count1| from 'foldlevel'.
+zr		Reduce folding: Add |v:count1| to 'foldlevel'.
 
 Unit Prefixes
 -------------
@@ -120,5 +140,11 @@ X*C-w*	delete word
 X*C-x*				completion			clip cut
   C-y| 				scroll up
 X*C-z| 	suspend job
+
+Magento2
+--------
+
+  SELECT * FROM core_config_data WHERE path LIKE '%base_url%'
+  catalog_product_entity
 
 .. vim:ft=rst
