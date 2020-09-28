@@ -24,8 +24,11 @@ Go
   time.Parse(layout, value string)
     Mon Jan 2 15:04:05 MST 2006
 
-  ioutil.ReadFile(filename string) ([]byte, error)
-  ioutil.WriteFile(filename string, data []byte, perm os.FileMode) error
+  b, err := ioutil.ReadFile(filename)
+  err := ioutil.WriteFile(filename, b, perm) // os.FileMode
+
+  // []byte => io.Reader
+  r := bytes.NewReader(b)
 
 Zsh
 ---
